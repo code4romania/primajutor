@@ -15,14 +15,14 @@ return new class extends Migration
     {
         Schema::create('help_points', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->json('title');
             $table->string('type');
 
             $table->integer('city_id');
             $table->integer('county_id');
             $table->string('address');
 
-            $table->string('time_schedule');
+            $table->json('time_schedule');
             $table->string('lat');
             $table->string('lng');
             $table->timestamps();

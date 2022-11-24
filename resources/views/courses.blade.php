@@ -6,18 +6,18 @@
             <div class="container-fluid">
                 <div class="search-box-container">
                     <div class="general-field">
-                        <label for="searchedCounty"> {{__('txt.Judet')}} </label>
+                        <label for="searchedCounty"> {{__('txt.placeholders.county')}} </label>
                         <select name="" id="county-select" onchange="getCities()">
-                            <option disabled selected> {{__('txt.Judet')}} </option>
+                            <option disabled selected> {{__('txt.placeholders.county')}} </option>
                             @foreach($counties as $county)
                                 <option value="{{$county->id}}"> {{$county->name}} </option>
                             @endforeach
                         </select>
                     </div>
                     <div class="general-field">
-                        <label for="searchedLocal"> {{__('txt.Localitate')}} </label>
+                        <label for="searchedLocal"> {{__('txt.placeholders.city')}} </label>
                         <select name="" id="city-select" onchange="getCoursesList()">
-                            <option value="" disabled selected> {{__('txt.Localitate')}} </option>
+                            <option value="" disabled selected> {{__('txt.placeholders.city')}} </option>
                         </select>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
                 option.value = "";
                 option.disabled = true;
                 option.selected = true;
-                option.text = "{{__('txt.Localitate')}}";
+                option.text = "{{__('txt.placeholders.city')}}";
 
                 el.appendChild(option)
 

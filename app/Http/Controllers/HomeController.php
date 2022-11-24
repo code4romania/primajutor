@@ -8,6 +8,7 @@ use App\Models\HelpCourse;
 use App\Models\HelpPoint;
 use App\Models\HelpTopic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\View;
 
 class HomeController extends Controller
@@ -15,8 +16,17 @@ class HomeController extends Controller
     public function home()
     {
         $helpTopics = HelpTopic::get();
+        $helpPoints = HelpPoint::select('county_id', 'lat', 'lng', 'title')->groupBy('county_id', 'lat', 'lng', 'title')->get();
 
-        return view('home', compact('helpTopics'));
+        $helpPointsArr = [];
+        foreach ($helpPoints as $hp) {
+            $helpPointsArr[] = [
+                'lat' => $hp->lat,
+                'lng' => $hp->lng,
+                'title' => $hp->title,
+            ];
+        }
+        return view('home', compact('helpTopics', 'helpPointsArr'));
     }
 
     public function helpTopic($helpTopicSlug)
@@ -139,6 +149,18 @@ class HomeController extends Controller
         $angle = 2 * asin(sqrt(pow(sin($latDelta / 2), 2) +
                                cos($latFrom) * cos($latTo) * pow(sin($lonDelta / 2), 2)));
         return $angle * $earthRadius;
+    }
+
+    public function setLocale($lang)
+    {
+        if (in_array($lang, ['en', 'ro'])) {
+            App::setLocale($lang);
+            session()->put('locale', $lang);
+        } else {
+            App::setLocale('ro');
+            session()->put('locale', 'ro');
+        }
+        return back();
     }
 
 }

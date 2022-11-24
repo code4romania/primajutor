@@ -19,7 +19,7 @@
         </div>
         <a href="javascript:navFunc({{$helpPoint['point']->lat}}, {{$helpPoint['point']->lng}})" class="location-directions">
             <i class="fa-solid fa-diamond-turn-right"></i>
-            <span> {{__('txt.Indicatii')}} </span>
+            <span> {{__('txt.buttons.indications')}} </span>
         </a>
     </div>
 @endforeach

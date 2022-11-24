@@ -5,8 +5,8 @@
         <section class="hero-section">
             <div class="container-fluid">
                 <div class="search-box-container">
-                    <h4>  {{__('txt.Localizeaza un punct de prim ajutor langa tine')}}</h4>
-                    <p>  {{__('txt.Detalii despre ce sa caute')}}</p>
+                    <h4>  {{__('txt.home.top_title')}}</h4>
+                    <p>  {{__('txt.home.top_subtitle')}}</p>
                     <div class="search-box">
                         <div class="search-input">
                             <input type="text" placeholder="Cauta oras, strada" id="autocomplete">
@@ -14,7 +14,7 @@
                         </div>
                         <button class="search-loc-button" onclick="getLocation()" id="btn-localize">
                             <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true" id="btn-spin" style="display: none;"></span>
-                            <span id="btn-txt">{{__('txt.Localizare')}}</span>
+                            <span id="btn-txt">{{__('txt.buttons.localize')}}</span>
                         </button>
                     </div>
                 </div>

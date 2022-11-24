@@ -5,16 +5,16 @@
         <section class="hero-section">
             <div class="container-fluid">
                 <div class="search-box-container">
-                    <h4> {{__('txt.Localizeaza un punct de prim ajutor langa tine')}} </h4>
-                    <p>  {{__('txt.Detalii despre ce sa caute')}}  </p>
+                    <h4> {{__('txt.home.top_title')}} </h4>
+                    <p>  {{__('txt.home.top_subtitle')}}  </p>
                     <div class="search-box">
                         <div class="search-input">
-                            <input type="text" placeholder="Cauta oras, strada" id="autocomplete">
+                            <input type="text" placeholder="{{__('txt.placeholders.find_city_street')}}" id="autocomplete">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </div>
                         <button class="search-loc-button" onclick="getLocation()" id="btn-localize">
                             <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true" id="btn-spin" style="display: none;"></span>
-                            <span id="btn-txt">{{__('txt.Localizare')}} </span>
+                            <span id="btn-txt">{{__('txt.buttons.localize')}} </span>
                         </button>
                     </div>
                 </div>
@@ -22,11 +22,11 @@
         </section>
         <section class="emerg-section">
             <div class="emerg-container">
-                <h4> {{__('txt.Daca aveti o urgenta sunati la 112')}} </h4>
+                <h4> {{__('txt.home.warning_strip')}} </h4>
             </div>
             <div class="fa-container">
                 <div class="container">
-                    <h4> {{__('txt.Ofera prim ajutor asistat')}} </h4>
+                    <h4> {{__('txt.home.help_topics_title')}} </h4>
                     <div class="cases-accordion">
                         @foreach($helpTopics as $key => $topic)
                             <a href="{{route('helpTopic.detail', $topic->slug)}}" class="case-strip js-topic-link" @if($key > 3) style="display: none;" @endif>
@@ -35,7 +35,7 @@
                             </a>
                         @endforeach
                         <p class="see-all" id="js-home-see-all" onclick="seeAll()">
-                            <span> {{__('txt.Vezi toate cazurile')}} </span>
+                            <span> {{__('txt.buttons.see_all_topics')}} </span>
                             <i class="fa-solid fa-angle-down"></i>
                         </p>
                     </div>
@@ -43,16 +43,16 @@
             </div>
             <div class="inside-search-container">
                 <div class="search-box-container">
-                    <h4> {{__('txt.Descoperă toate punctele de prim ajutor din Romania')}} </h4>
+                    <h4> {{__('txt.home.map_title')}} </h4>
                     <div class="search-box">
                         <a class="search-loc-city-button" href="{{route('map')}}">
-                            {{__('txt.Localizare in orasul tau')}}
+                            {{__('txt.buttons.localize_in_town')}}
                         </a>
                     </div>
                 </div>
                 <div class="mapouter">
-                    <div class="gmap_canvas">
-                        <iframe id="gmap_canvas" src="https://maps.google.com/maps?q=romania&t=&z=7&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                    <div class="gmap_canvas" id="map">
+
                     </div>
                 </div>
             </div>
@@ -61,8 +61,35 @@
 @endsection
 
 @section('js')
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFTrS57SxNeDrDL85asZT_oz2Me-1j3h8&libraries=places&callback=initAutocomplete" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFTrS57SxNeDrDL85asZT_oz2Me-1j3h8&libraries=places&callback=initMap" async defer></script>
     <script>
+
+        var map = null
+        var markers = []
+        var myLatLng = { lat: 46.218160, lng: 25.158008 };
+
+        function initMap() {
+
+            map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 7,
+                center: myLatLng,
+            });
+
+            let points = @json($helpPointsArr);
+            for(let i in points){
+                let marker = new google.maps.Marker({
+                    position: { lat: parseFloat(points[i].lat), lng: parseFloat(points[i].lng) },
+                    map,
+                    title: points[i].title,
+                });
+                markers.push(marker)
+            }
+
+            initAutocomplete()
+        }
+
+
+
         function seeAll(){
             document.getElementById("js-home-see-all").remove()
             let elems = document.querySelectorAll('.js-topic-link')

@@ -9,6 +9,7 @@ use Filament\Resources\Pages\ListRecords;
 
 class ListHelpPoints extends ListRecords
 {
+
     protected static string $resource = HelpPointResource::class;
 
     protected function getActions(): array

@@ -15,7 +15,7 @@
                 </p>
                 <p class="pt-0">{{$helpPoint->time_schedule}}</p>
                 <a href="javascript:navFunc({{$helpPoint->lat}}, {{$helpPoint->lng}})" class="ud-link">
-                    {{__('txt.Vezi pe harta')}}
+                    {{__('txt.buttons.see_on_map')}}
                     <i class="fa-solid fa-diamond-turn-right"></i>
                 </a>
             </div>

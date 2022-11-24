@@ -1,23 +1,35 @@
 <?php
 
 return [
-
-    "Judet" => "Judet",
-    "Localitate" => "Localitate",
-    "Continua" => "Continua",
-    "Localizeaza un punct de prim ajutor langa tine" => "Localizeaza un punct de prim ajutor langa tine",
-    "Detalii despre ce sa caute" => "Detalii despre ce sa caute",
-    "Localizare" => "Localizare",
-    "Localizare in orasul tau" => "Localizare in orasul tau",
-    "Descoperă toate punctele de prim ajutor din Romania" => "Descoperă toate punctele de prim ajutor din Romania",
-    "Vezi toate cazurile" => "Vezi toate cazurile",
-    "Daca aveti o urgenta sunati la 112" => "Daca aveti o urgenta sunati la 112",
-    "Ofera prim ajutor asistat" => "Ofera prim ajutor asistat",
-    "Doneaza" => "Doneaza",
-    "Cursuri Prim Ajutor" => "Cursuri Prim Ajutor",
-    "Dacă vrei să iei legătura cu noi o poți face pe e-mail la adresa" => "Dacă vrei să iei legătura cu noi o poți face pe e-mail la adresa",
-    "Inscriete" => "Inscriete",
-    "Indicatii" => "Indicatii",
-    "Vezi pe harta" => "Vezi pe harta",
+    "buttons" => [
+        "register" => "Register",
+        "continue" => "Continue",
+        "localize" => "Localize",
+        "localize_in_town" => "Localize in your town",
+        "see_all_topics" => "See all topics",
+        "donate" => "Donate",
+        "help_courses" => "Help Courses",
+        "indications" => "Indications",
+        "see_on_map" => "See On Map",
+        "find_more" => "Find More"
+    ],
+    "placeholders" => [
+        "county" => "County",
+        "city" => "City",
+        "find_city_street" => "Find city, street",
+    ],
+    "home" => [
+        "top_title" => "Localize a help point near you",
+        "top_subtitle" => "Details on findings",
+        "map_title" => "Find all help points in Romania",
+        "warning_strip" => "If you have an emergency call 112",
+        "help_topics_title" => "Offer help with assistance"
+    ],
+    "footer" => [
+        'contact_txt' => "If you want to contact as you can do it at following e-mail address"
+    ],
+    "header" => [
+        'commit_global' => "A Commit Global solution."
+    ],
 
 ];

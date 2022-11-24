@@ -567,7 +567,7 @@ ul{
 
 .main-footer{
     background-color: $secondary_color;
-    padding: $container_padding;
+    padding-bottom: $container_padding;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -1120,5 +1120,43 @@ ul{
                 font-size: 18px;
             }
         }
+    }
+}
+
+.header-global-container {
+
+    img{
+        height: 2rem;
+        width: 130px;
+
+        @media(max-width: 420px)
+        {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    div{
+        display: inline;
+
+        @media(max-width: 420px)
+        {
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+        }
+    }
+}
+
+.footer-strip-container {
+    background-color: $background_gray;
+
+    img{
+        width: 35px;
+    }
+
+    div{
+        display: inline;
     }
 }

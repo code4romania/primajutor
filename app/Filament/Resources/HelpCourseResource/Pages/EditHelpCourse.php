@@ -14,6 +14,7 @@ class EditHelpCourse extends EditRecord
     {
         return [
             Actions\DeleteAction::make(),
+            Actions\LocaleSwitcher::make(),
         ];
     }
 }

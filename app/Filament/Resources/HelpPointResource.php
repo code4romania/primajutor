@@ -10,6 +10,8 @@ use App\Models\HelpPoint;
 use Filament\Forms;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+use Filament\Pages\Actions\LocaleSwitcher;
+use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
@@ -23,6 +25,8 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class HelpPointResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = HelpPoint::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-location-marker';
@@ -31,7 +35,7 @@ class HelpPointResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('title')->required(),
+                TextInput::make('title')->required()->translateLabel(),
                 Select::make('type')->options([
                     'defibrilator' => 'Defibrilator',
                     'punct-ajutor' => 'Punct Ajutor'
