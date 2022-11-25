@@ -6,6 +6,13 @@
 
 @section('content')
     <main class="app-main">
+        <div class="bg-gray">
+            <div class="container flex py-3 header-global-container">
+                <a href="{{route('home')}}" target="_blank" rel="noopener" class="breadcrumb-link whitespace-nowrap">
+                    {{__('txt.buttons.home')}}
+                </a> / {{ $page->title  }}
+            </div>
+        </div>
         <section class="text-content-section">
             <div class="container-fluid">
                 <div class="container">

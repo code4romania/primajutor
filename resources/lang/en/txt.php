@@ -11,7 +11,8 @@ return [
         "help_courses" => "Help Courses",
         "indications" => "Indications",
         "see_on_map" => "See On Map",
-        "find_more" => "Find More"
+        "find_more" => "Find More",
+        "home" => "Home"
     ],
     "placeholders" => [
         "county" => "County",

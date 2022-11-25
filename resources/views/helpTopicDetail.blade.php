@@ -7,6 +7,13 @@
 
 @section('content')
     <main class="app-main">
+        <div class="bg-gray">
+            <div class="container flex py-3 header-global-container">
+                <a href="{{route('home')}}" target="_blank" rel="noopener" class="breadcrumb-link whitespace-nowrap">
+                    {{__('txt.buttons.home')}}
+                </a> / {{__('txt.home.help_topics_title')}}
+            </div>
+        </div>
         <section class="first-aid-steps-section">
             <div class="container-fluid">
                 <div class="container">

@@ -1160,3 +1160,11 @@ ul{
         display: inline;
     }
 }
+
+.bg-gray {
+    background-color: $background_gray;
+}
+
+.breadcrumb-link {
+    color: $main_color;
+}

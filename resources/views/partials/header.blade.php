@@ -1,6 +1,6 @@
 <header class="main-header">
     <div class="container-fluid">
-        <div class="bg-gray-100" style="background-color: rgb(243,244,246)">
+        <div class="bg-gray">
             <div class="container flex py-3 header-global-container">
                 <img src="{{asset('images/commitglobal.svg')}}">
                 <div class="ml-3 text-sm font-medium">

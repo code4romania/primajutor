@@ -12,7 +12,8 @@ return [
         "help_courses" => "Cursuri Prim Ajutor",
         "indications" => "Indicatii",
         "see_on_map" => "Vezi pe Harta",
-        "find_more" => "Află mai multe"
+        "find_more" => "Află mai multe",
+        "home" => "Acasa"
     ],
     "placeholders" => [
         "county" => "Judet",
