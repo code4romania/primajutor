@@ -8,6 +8,8 @@ use Filament\Resources\Pages\EditRecord;
 
 class EditHelpCourse extends EditRecord
 {
+    use EditRecord\Concerns\Translatable;
+
     protected static string $resource = HelpCourseResource::class;
 
     protected function getActions(): array

@@ -39,7 +39,7 @@ class HelpPointResource extends Resource
                 Select::make('type')->options([
                     'defibrilator' => 'Defibrilator',
                     'punct-ajutor' => 'Punct Ajutor'
-                ]),
+                ])->required(),
                 Select::make('county_id')
                     ->label('County')
                     ->options(County::all()->pluck('name', 'id')->toArray())

@@ -33,8 +33,8 @@ class HelpTopicResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('title'),
-                TextInput::make('slug'),
+                TextInput::make('title')->required(),
+                TextInput::make('slug')->required(),
                 TextInput::make('seo_title'),
                 TextArea::make('seo_keywords'),
                 TextArea::make('seo_description'),
@@ -42,9 +42,9 @@ class HelpTopicResource extends Resource
                     ->relationship()
                     ->columnSpanFull()
                     ->schema([
-                        TextInput::make('step_number')->numeric(),
-                        TextInput::make('title'),
-                        RichEditor::make('content'),
+                        TextInput::make('step_number')->numeric()->required(),
+                        TextInput::make('title')->required(),
+                        RichEditor::make('content')->required(),
                         SpatieMediaLibraryFileUpload::make('banner')->collection('banner'),
                     ])
             ]);

@@ -39,8 +39,8 @@ class PageResource extends Resource
                     ->schema([
                         Checkbox::make('show_in_header'),
                         Checkbox::make('show_in_footer'),
-                        TextInput::make('title'),
-                        TextInput::make('alias'),
+                        TextInput::make('title')->required(),
+                        TextInput::make('alias')->required(),
                         RichEditor::make('content')
                             ->toolbarButtons([
                                 'attachFiles',
