@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('help_topics', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->json('title');
             $table->string('slug');
-            $table->string('seo_title')->nullable();
-            $table->text('seo_description')->nullable();
-            $table->text('seo_keywords')->nullable();
+            $table->json('seo_title')->nullable();
+            $table->json('seo_description')->nullable();
+            $table->json('seo_keywords')->nullable();
             $table->timestamps();
         });
     }

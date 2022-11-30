@@ -11,6 +11,7 @@ use Filament\Forms;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
@@ -23,6 +24,8 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class HelpCourseResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = HelpCourse::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-academic-cap';

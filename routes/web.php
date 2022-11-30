@@ -24,6 +24,7 @@ Route::get('/localize-points', [HomeController::class, 'localizeLatLngPoints'])-
 Route::get('/cities/{countyId}', [HomeController::class, 'citiesByCounty'])->name('citiesByCounty');
 Route::get('/help-points/{countyId}/{cityId?}', [HomeController::class, 'helpPoints'])->name('helpPoints');
 Route::get('/courses-list/{countyId}/{cityId?}', [HomeController::class, 'coursesList'])->name('coursesList');
+Route::get('/lang/{lang}', [HomeController::class, 'setLocale'])->name('setLocale');
 
 
 Route::get('/{alias}', [PageController::class, 'page'])->name('page')->where('alias','^(?!livewire).*$');

@@ -7,9 +7,11 @@ use App\Filament\Resources\HelpTopicResource\RelationManagers;
 use App\Models\HelpTopic;
 use Filament\Forms;
 use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
@@ -21,6 +23,8 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class HelpTopicResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = HelpTopic::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-support';
@@ -29,8 +33,8 @@ class HelpTopicResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('title'),
-                TextInput::make('slug'),
+                TextInput::make('title')->required(),
+                TextInput::make('slug')->required(),
                 TextInput::make('seo_title'),
                 TextArea::make('seo_keywords'),
                 TextArea::make('seo_description'),
@@ -38,12 +42,9 @@ class HelpTopicResource extends Resource
                     ->relationship()
                     ->columnSpanFull()
                     ->schema([
-                        TextInput::make('step_number')->numeric(),
-                        TextInput::make('title'),
-                        Repeater::make('content')
-                            ->schema([
-                               TextInput::make('line'),
-                            ]),
+                        TextInput::make('step_number')->numeric()->required(),
+                        TextInput::make('title')->required(),
+                        RichEditor::make('content')->required(),
                         SpatieMediaLibraryFileUpload::make('banner')->collection('banner'),
                     ])
             ]);

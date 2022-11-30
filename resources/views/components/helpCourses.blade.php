@@ -14,7 +14,7 @@
         </div>
         <a href="{{$helpCourse->link}}" class="location-directions" target="_blank">
             <i class="fa-solid fa-location-dot"></i>
-            <span> {{__('txt.Inscriete')}} </span>
+            <span> {{__('txt.buttons.register')}} </span>
         </a>
     </div>
 @endforeach

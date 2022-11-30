@@ -2,13 +2,20 @@
 
 @section('content')
     <main class="app-main">
+        <div class="bg-gray">
+            <div class="container flex py-3 header-global-container">
+                <a href="{{route('home')}}" target="_blank" rel="noopener" class="breadcrumb-link whitespace-nowrap">
+                    {{__('txt.buttons.home')}}
+                </a> / {{__('txt.buttons.localize_in_town')}}
+            </div>
+        </div>
         <section class="hero-section">
             <div class="container-fluid">
                 <div class="search-box-container">
                     <div class="general-field">
-                        <label for="searchedCounty"> {{__('txt.Judet')}} </label>
+                        <label for="searchedCounty"> {{__('txt.placeholders.county')}} </label>
                         <select name="" id="county-select" onchange="getCities()">
-                            <option disabled selected> {{__('txt.Judet')}} </option>
+                            <option disabled selected> {{__('txt.placeholders.county')}} </option>
                             @foreach($counties as $county)
                                 <option value="{{$county->id}}"> {{$county->name}} </option>
                             @endforeach
@@ -16,9 +23,9 @@
                         <!-- <input type="text" placeholder="Cauta judet" id="searchedCounty"> -->
                     </div>
                     <div class="general-field">
-                        <label for="searchedLocal"> {{__('txt.Localitate')}} </label>
+                        <label for="searchedLocal"> {{__('txt.placeholders.city')}} </label>
                         <select name="" id="city-select" onchange="getHelpPoints(true)">
-                            <option value="" disabled selected> {{__('txt.Localitate')}} </option>
+                            <option value="" disabled selected> {{__('txt.placeholders.city')}} </option>
                         </select>
                         <!-- <input type="text" placeholder="Cauta oras" id="searchedLocal"> -->
                     </div>
@@ -83,7 +90,7 @@
                 option.value = "";
                 option.disabled = true;
                 option.selected = true;
-                option.text = "{{__('txt.Localitate')}}";
+                option.text = "{{__('txt.placeholders.city')}}";
 
                 el.appendChild(option)
 

@@ -7,6 +7,13 @@
 
 @section('content')
     <main class="app-main">
+        <div class="bg-gray">
+            <div class="container flex py-3 header-global-container">
+                <a href="{{route('home')}}" target="_blank" rel="noopener" class="breadcrumb-link whitespace-nowrap">
+                    {{__('txt.buttons.home')}}
+                </a> / {{__('txt.home.help_topics_title')}}
+            </div>
+        </div>
         <section class="first-aid-steps-section">
             <div class="container-fluid">
                 <div class="container">
@@ -18,9 +25,7 @@
                                     <div class="swiper-slide-text">
                                         <h3 class="swiper-text-title"> {{ $step->title }} </h3>
                                         <div class="swiper-text-para">
-                                             @foreach($step->content as $p)
-                                                 <p>{{$p['line']}}</p>
-                                             @endforeach
+                                             {!! $step->content !!}
                                         </div>
                                     </div>
                                 </div>
@@ -31,7 +36,7 @@
                                 <i class="fa-solid fa-arrow-left"></i>
                             </div>
                             <div class="swiper-button-next">
-                                {{__('txt.Continua')}}
+                                {{__('txt.buttons.continue')}}
                             </div>
                         </div>
                     </div>

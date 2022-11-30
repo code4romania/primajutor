@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('help_topic_steps', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('help_topic_id');
-            $table->string('title');
-            $table->text('content');
+            $table->json('title');
+            $table->json('content');
             $table->integer('step_number');
             $table->timestamps();
 

@@ -17,12 +17,12 @@ return new class extends Migration
             $table->id();
             $table->boolean('show_in_header')->default(0);
             $table->boolean('show_in_footer')->default(0);
-            $table->string('title');
+            $table->json('title');
             $table->string('alias');
-            $table->text('content');
-            $table->string('seo_title')->nullable();
-            $table->text('seo_description')->nullable();
-            $table->text('seo_keywords')->nullable();
+            $table->json('content');
+            $table->json('seo_title')->nullable();
+            $table->json('seo_description')->nullable();
+            $table->json('seo_keywords')->nullable();
             $table->timestamps();
         });
     }

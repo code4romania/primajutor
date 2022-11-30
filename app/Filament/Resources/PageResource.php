@@ -12,6 +12,7 @@ use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Form;
 use Filament\Resources\Pages\CreateRecord;
 use Filament\Resources\Resource;
@@ -24,6 +25,8 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class PageResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = Page::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
@@ -36,8 +39,8 @@ class PageResource extends Resource
                     ->schema([
                         Checkbox::make('show_in_header'),
                         Checkbox::make('show_in_footer'),
-                        TextInput::make('title'),
-                        TextInput::make('alias'),
+                        TextInput::make('title')->required(),
+                        TextInput::make('alias')->required(),
                         RichEditor::make('content')
                             ->toolbarButtons([
                                 'attachFiles',
