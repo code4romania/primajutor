@@ -8,7 +8,7 @@ COPY \
     artisan \
     package.json \
     package-lock.json \
-    webpack.mix.js\
+    webpack.mix.js \
     ./
 
 RUN npm ci --no-audit --ignore-scripts
@@ -66,25 +66,6 @@ RUN composer install \
 ENV APP_ENV production
 ENV APP_DEBUG false
 ENV LOG_CHANNEL stderr
-
-ENV QUEUE_CONNECTION database
-
-ENV RESPONSE_CACHE_ENABLED true
-
-# The number of jobs to process before stopping
-ENV WORKER_MAX_JOBS 5
-
-# Number of seconds to sleep when no job is available
-ENV WORKER_SLEEP 10
-
-# Number of seconds to rest between jobs
-ENV WORKER_REST 1
-
-# The number of seconds a child process can run
-ENV WORKER_TIMEOUT 600
-
-# Number of times to attempt a job before logging it failed
-ENV WORKER_TRIES 1
 
 ENV S6_CMD_WAIT_FOR_SERVICES_MAXTIME 0
 
