@@ -42,10 +42,9 @@ RUN apk update && \
     gd \
     pdo_mysql \
     zip \
-    intl\
-    mbstring\
+    intl \
+    mbstring \
     exif
-
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV COMPOSER_HOME /tmp
