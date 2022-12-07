@@ -14,7 +14,7 @@
                 <div class="search-box-container">
                     <div class="general-field">
                         <label for="searchedCounty"> {{__('txt.placeholders.county')}} </label>
-                        <select name="" id="county-select" onchange="getCities()">
+                        <select name="" id="county-select" onchange="getCities(@js(__('txt.placeholders.city')))">
                             <option disabled selected> {{__('txt.placeholders.county')}} </option>
                             @foreach($counties as $county)
                                 <option value="{{$county->id}}"> {{$county->name}} </option>
@@ -43,43 +43,5 @@
 @endsection
 
 @section('js')
-
-    <script>
-
-        function getCities()
-        {
-            $.get('cities/' + $('#county-select').val(), function(data, status){
-                getCoursesList()
-                let option = null;
-                let el = document.getElementById('city-select')
-                el.innerHTML = ""
-
-                option = document.createElement('option');
-                option.value = "";
-                option.disabled = true;
-                option.selected = true;
-                option.text = "{{__('txt.placeholders.city')}}";
-
-                el.appendChild(option)
-
-                for(i in data){
-                    option = document.createElement('option');
-                    option.value = i;
-                    option.text = data[i];
-
-                    el.appendChild(option)
-                }
-            });
-        }
-
-        function getCoursesList()
-        {
-            let city = $('#city-select').val() ? $('#city-select').val() : ""
-            $.get('courses-list/' + $('#county-select').val() + '/' + city, function(data, status){
-                document.getElementById('courses-list').innerHTML = ""
-                document.getElementById('courses-list').innerHTML = data.content
-            });
-        }
-
-    </script>
+    <script src="{{mix('assets/js/courses.js')}}"></script>
 @endsection

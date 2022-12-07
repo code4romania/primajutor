@@ -45,13 +45,11 @@ class HelpCourseResource extends Resource
                 Select::make('city_id')
                     ->label('City')
                     ->required()
-                    ->options(function (callable $get) {
-                        $county = County::find($get('county_id'));
-                        if (!$county) {
-                            return [];
-                        }
-                        return City::where('id_parent', $county->id)->pluck('name', 'id');
-                    })
+                    ->options(
+                        fn (callable $get) => County::find($get('county_id'))
+                            ?->cities
+                            ->pluck('name', 'id')
+                    )
                     ->searchable()
                     ->reactive(),
                 TextInput::make('info')->required(),
