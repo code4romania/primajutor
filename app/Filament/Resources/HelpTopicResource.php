@@ -1,12 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\HelpTopicResource\Pages;
-use App\Filament\Resources\HelpTopicResource\RelationManagers;
 use App\Models\HelpTopic;
 use Closure;
-use Filament\Forms;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
@@ -19,9 +19,6 @@ use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Columns\TextInputColumn;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
 
 class HelpTopicResource extends Resource
@@ -45,8 +42,8 @@ class HelpTopicResource extends Resource
                     ->reactive()
                     ->required(),
                 TextInput::make('slug')->afterStateUpdated(function (Closure $set) {
-                        $set('is_slug_changed_manually', true);
-                    })
+                    $set('is_slug_changed_manually', true);
+                })
                     ->required()
                     ->unique(),
                 Hidden::make('is_slug_changed_manually')
@@ -63,7 +60,7 @@ class HelpTopicResource extends Resource
                         TextInput::make('title')->required(),
                         RichEditor::make('content')->required(),
                         SpatieMediaLibraryFileUpload::make('banner')->collection('banner'),
-                    ])
+                    ]),
             ]);
     }
 
