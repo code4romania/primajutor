@@ -60,8 +60,8 @@ class HelpPointResource extends Resource
                     ->searchable()
                     ->reactive(),
                 TextInput::make('address')->required(),
-                TextInput::make('lat')->required(),
-                TextInput::make('lng')->required(),
+                TextInput::make('lat')->numeric()->required(),
+                TextInput::make('lng')->numeric()->required(),
                 TextInput::make('time_schedule')->required()
 
             ]);
