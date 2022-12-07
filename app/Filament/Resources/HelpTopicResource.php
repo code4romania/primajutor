@@ -35,9 +35,12 @@ class HelpTopicResource extends Resource
             ->schema([
                 TextInput::make('title')->required(),
                 TextInput::make('slug')->required(),
-                TextInput::make('seo_title'),
-                TextArea::make('seo_keywords'),
-                TextArea::make('seo_description'),
+                Forms\Components\Section::make('Seo')
+                    ->schema([
+                        TextInput::make('seo_title'),
+                        TextArea::make('seo_keywords'),
+                        TextArea::make('seo_description'),
+                    ]),
                 Repeater::make('helpTopicSteps')
                     ->relationship()
                     ->columnSpanFull()
@@ -46,7 +49,7 @@ class HelpTopicResource extends Resource
                         TextInput::make('title')->required(),
                         RichEditor::make('content')->required(),
                         SpatieMediaLibraryFileUpload::make('banner')->collection('banner'),
-                    ])
+                    ]),
             ]);
     }
 
