@@ -63,6 +63,10 @@
 @section('js')
     <script src="https://maps.googleapis.com/maps/api/js?key={{config('app.gmaps_api_key')}}&libraries=places&callback=initMap" async defer></script>
 
-    <script src="{{mix('assets/js/home.js')}}" helppoints='@json($helpPointsArr)'></script>
+    <script>
+        var points = @json($helpPointsArr);
+    </script>
+
+    <script src="{{mix('assets/js/home.js')}}"></script>
 
 @endsection

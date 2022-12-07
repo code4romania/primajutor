@@ -1,5 +1,3 @@
-let helppoints = JSON.parse(document.currentScript.getAttribute('helppoints'))
-
 var map = null
 var markers = []
 var myLatLng = { lat: 46.218160, lng: 25.158008 };
@@ -11,7 +9,6 @@ window.initMap = () => {
         center: myLatLng,
     });
 
-    let points = helppoints
     for(let i in points){
         let marker = new google.maps.Marker({
             position: { lat: parseFloat(points[i].lat), lng: parseFloat(points[i].lng) },
