@@ -14,7 +14,7 @@
                 <div class="search-box-container">
                     <div class="general-field">
                         <label for="searchedCounty"> {{__('txt.placeholders.county')}} </label>
-                        <select name="" id="county-select" onchange="getCities()">
+                        <select name="" id="county-select" onchange="getCities(@js(__('txt.placeholders.city')))">
                             <option disabled selected> {{__('txt.placeholders.county')}} </option>
                             @foreach($counties as $county)
                                 <option value="{{$county->id}}"> {{$county->name}} </option>
@@ -43,6 +43,5 @@
 @endsection
 
 @section('js')
-
-    <script src="{{mix('assets/js/courses.js')}}" cityplaceholder="{{__('txt.placeholders.city')}}"></script>
+    <script src="{{mix('assets/js/courses.js')}}"></script>
 @endsection

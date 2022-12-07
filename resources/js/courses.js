@@ -1,6 +1,4 @@
-let cityPlaceholder = document.currentScript.getAttribute('cityplaceholder')
-
-window.getCities = () =>
+window.getCities = (placeholder) =>
 {
     $.get('cities/' + $('#county-select').val(), function(data, status){
         getCoursesList()
@@ -12,7 +10,7 @@ window.getCities = () =>
         option.value = "";
         option.disabled = true;
         option.selected = true;
-        option.text = cityPlaceholder;
+        option.text = placeholder;
 
         el.appendChild(option)
 
