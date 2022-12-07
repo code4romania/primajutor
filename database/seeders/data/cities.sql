@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- Dumping data for table `cities`
 --
 
-INSERT INTO `cities` (`id`, `name`, `id_parent`, `Agentie`, `km`, `judet`) VALUES
+INSERT INTO `cities` (`id`, `name`, `county_id`, `Agentie`, `km`, `judet`) VALUES
 (3992, 'Abrud', 33, 'Alba Iulia', 70, 'Alba'),
 (3993, 'Abrud-Sat', 33, 'Alba Iulia', 70, 'Alba'),
 (3994, 'Achimetesti', 33, 'Alba Iulia', 110, 'Alba'),
@@ -1076,7 +1076,7 @@ INSERT INTO `cities` (`id`, `name`, `id_parent`, `Agentie`, `km`, `judet`) VALUE
 (5039, 'Loturi', 35, 'Campulung', 0, 'Arges'),
 (5040, 'Lunca', 35, 'Campulung', 17, 'Arges'),
 (5041, 'Lunca Corbului', 35, 'Pitesti', 25, 'Arges');
-INSERT INTO `cities` (`id`, `name`, `id_parent`, `Agentie`, `km`, `judet`) VALUES
+INSERT INTO `cities` (`id`, `name`, `county_id`, `Agentie`, `km`, `judet`) VALUES
 (5042, 'Lunca Gartii', 35, 'Campulung', 24, 'Arges'),
 (5043, 'Malu (Barla)', 35, 'Pitesti', 50, 'Arges'),
 (5044, 'Malu (Godeni)', 35, 'Campulung', 18, 'Arges'),
@@ -2146,7 +2146,7 @@ INSERT INTO `cities` (`id`, `name`, `id_parent`, `Agentie`, `km`, `judet`) VALUE
 (6108, 'Agrisu de Jos', 38, 'Bistrita', 40, 'Bistrita-Nasaud'),
 (6109, 'Agrisu de Sus', 38, 'Bistrita', 35, 'Bistrita-Nasaud'),
 (6110, 'Albestii Bistritei', 38, 'Bistrita', 35, 'Bistrita-Nasaud');
-INSERT INTO `cities` (`id`, `name`, `id_parent`, `Agentie`, `km`, `judet`) VALUES
+INSERT INTO `cities` (`id`, `name`, `county_id`, `Agentie`, `km`, `judet`) VALUES
 (6111, 'Alunisul', 38, 'Bistrita', 50, 'Bistrita-Nasaud'),
 (6112, 'Anies', 38, 'Bistrita', 70, 'Bistrita-Nasaud'),
 (6113, 'Apatiu', 38, 'Dej', 58, 'Bistrita-Nasaud'),
@@ -3135,7 +3135,7 @@ INSERT INTO `cities` (`id`, `name`, `id_parent`, `Agentie`, `km`, `judet`) VALUE
 (7096, 'Coltii de Jos', 43, 'Buzau', 66, 'Buzau'),
 (7097, 'Coltu Pietrii', 43, 'Buzau', 80, 'Buzau'),
 (7098, 'Comisoaia', 43, 'Ramnicu Sarat', 0, 'Buzau');
-INSERT INTO `cities` (`id`, `name`, `id_parent`, `Agentie`, `km`, `judet`) VALUES
+INSERT INTO `cities` (`id`, `name`, `county_id`, `Agentie`, `km`, `judet`) VALUES
 (7099, 'Corbu (Catina)', 43, 'Buzau', 70, 'Buzau'),
 (7100, 'Corbu (Glodeanu-Silistea)', 43, 'Buzau', 40, 'Buzau'),
 (7101, 'Corneanu', 43, 'Buzau', 60, 'Buzau'),
@@ -4153,7 +4153,7 @@ INSERT INTO `cities` (`id`, `name`, `id_parent`, `Agentie`, `km`, `judet`) VALUE
 (8113, 'Moldovenesti', 46, 'Campia Turzii', 25, 'Cluj'),
 (8114, 'Morau', 46, 'Dej', 40, 'Cluj'),
 (8115, 'Moristi', 46, 'Cluj-Napoca', 0, 'Cluj');
-INSERT INTO `cities` (`id`, `name`, `id_parent`, `Agentie`, `km`, `judet`) VALUES
+INSERT INTO `cities` (`id`, `name`, `county_id`, `Agentie`, `km`, `judet`) VALUES
 (8116, 'Morlaca', 46, 'Huedin', 20, 'Cluj'),
 (8117, 'Mortesti', 46, 'Campia Turzii', 0, 'Cluj'),
 (8118, 'Muncel', 46, 'Dej', 21, 'Cluj'),
@@ -5129,7 +5129,7 @@ INSERT INTO `cities` (`id`, `name`, `id_parent`, `Agentie`, `km`, `judet`) VALUE
 (9088, 'Fantanele (Radovan)', 50, 'Craiova', 25, 'Dolj'),
 (9089, 'Fantanele (Teslui)', 50, 'Craiova', 25, 'Dolj'),
 (9090, 'Fantani', 50, 'Craiova', 30, 'Dolj');
-INSERT INTO `cities` (`id`, `name`, `id_parent`, `Agentie`, `km`, `judet`) VALUES
+INSERT INTO `cities` (`id`, `name`, `county_id`, `Agentie`, `km`, `judet`) VALUES
 (9091, 'Farcas', 50, 'Craiova', 40, 'Dolj'),
 (9092, 'Filaret', 50, 'Craiova', 45, 'Dolj'),
 (9093, 'Filiasi', 50, 'Filiasi', 0, 'Dolj'),
@@ -6191,7 +6191,7 @@ INSERT INTO `cities` (`id`, `name`, `id_parent`, `Agentie`, `km`, `judet`) VALUE
 (10149, 'Bucin (Praid)', 54, 'Odorheiu Secuiesc', 50, 'Harghita'),
 (10150, 'Bulgareni', 54, 'Odorheiu Secuiesc', 0, 'Harghita'),
 (10151, 'Cadaciu Mare', 54, 'Cristuru Secuiesc', 0, 'Harghita');
-INSERT INTO `cities` (`id`, `name`, `id_parent`, `Agentie`, `km`, `judet`) VALUES
+INSERT INTO `cities` (`id`, `name`, `county_id`, `Agentie`, `km`, `judet`) VALUES
 (10152, 'Cadaciu Mic', 54, 'Cristuru Secuiesc', 0, 'Harghita'),
 (10153, 'Calnaci', 54, 'Gheorgheni', 50, 'Harghita'),
 (10154, 'Calonda', 54, 'Odorheiu Secuiesc', 30, 'Harghita'),
@@ -7161,7 +7161,7 @@ INSERT INTO `cities` (`id`, `name`, `id_parent`, `Agentie`, `km`, `judet`) VALUE
 (11118, 'Dumesti', 57, 'Iasi', 0, 'Iasi'),
 (11119, 'Dumitrestii Galatii', 57, 'Iasi', 0, 'Iasi'),
 (11120, 'Erbiceni', 57, 'Targu Frumos', 30, 'Iasi');
-INSERT INTO `cities` (`id`, `name`, `id_parent`, `Agentie`, `km`, `judet`) VALUES
+INSERT INTO `cities` (`id`, `name`, `county_id`, `Agentie`, `km`, `judet`) VALUES
 (11121, 'Fantanele', 57, 'Iasi', 40, 'Iasi'),
 (11122, 'Farcaseni', 57, 'Targu Frumos', 0, 'Iasi'),
 (11123, 'Fedeleseni', 57, 'Targu Frumos', 20, 'Iasi'),
@@ -8064,7 +8064,7 @@ INSERT INTO `cities` (`id`, `name`, `id_parent`, `Agentie`, `km`, `judet`) VALUE
 (12020, 'Satu Mare', 60, 'Drobeta-Turnu Severin', 59, 'Mehedinti'),
 (12021, 'Satu Nou', 60, 'Drobeta-Turnu Severin', 65, 'Mehedinti'),
 (12022, 'Scapau', 60, 'Drobeta-Turnu Severin', 30, 'Mehedinti');
-INSERT INTO `cities` (`id`, `name`, `id_parent`, `Agentie`, `km`, `judet`) VALUES
+INSERT INTO `cities` (`id`, `name`, `county_id`, `Agentie`, `km`, `judet`) VALUES
 (12023, 'Schela Cladovei', 60, 'Drobeta-Turnu Severin', 0, 'Mehedinti'),
 (12024, 'Schinteiesti', 60, 'Drobeta-Turnu Severin', 0, 'Mehedinti'),
 (12025, 'Schitu Topolnitei', 60, 'Drobeta-Turnu Severin', 0, 'Mehedinti'),
@@ -9062,7 +9062,7 @@ INSERT INTO `cities` (`id`, `name`, `id_parent`, `Agentie`, `km`, `judet`) VALUE
 (13017, 'Negreni', 63, 'Slatina', 25, 'Olt'),
 (13018, 'Nicolae Titulescu', 63, 'Slatina', 40, 'Olt'),
 (13019, 'Obarsia ', 63, 'Caracal', 45, 'Olt');
-INSERT INTO `cities` (`id`, `name`, `id_parent`, `Agentie`, `km`, `judet`) VALUES
+INSERT INTO `cities` (`id`, `name`, `county_id`, `Agentie`, `km`, `judet`) VALUES
 (13020, 'Obarsia Noua', 63, 'Caracal', 45, 'Olt'),
 (13021, 'Oboga', 63, 'Slatina', 35, 'Olt'),
 (13022, 'Ociogi', 63, 'Slatina', 25, 'Olt'),
@@ -10087,7 +10087,7 @@ INSERT INTO `cities` (`id`, `name`, `id_parent`, `Agentie`, `km`, `judet`) VALUE
 (14041, 'Viisoara', 66, 'Carei', 30, 'Satu Mare'),
 (14042, 'Aciliu', 67, 'Sibiu', 40, 'Sibiu'),
 (14043, 'Agarbiciu', 67, 'Medias', 25, 'Sibiu');
-INSERT INTO `cities` (`id`, `name`, `id_parent`, `Agentie`, `km`, `judet`) VALUES
+INSERT INTO `cities` (`id`, `name`, `county_id`, `Agentie`, `km`, `judet`) VALUES
 (14044, 'Agnita', 67, 'Medias', 50, 'Sibiu'),
 (14045, 'Alamor', 67, 'Sibiu', 60, 'Sibiu'),
 (14046, 'Alma', 67, 'Medias', 0, 'Sibiu'),
@@ -11064,7 +11064,7 @@ INSERT INTO `cities` (`id`, `name`, `id_parent`, `Agentie`, `km`, `judet`) VALUE
 (15017, 'Lucaret', 70, 'Timisoara', 42, 'Timis'),
 (15018, 'Lugoj', 70, 'Lugoj', 0, 'Timis'),
 (15019, 'Lugojel', 70, 'Lugoj', 0, 'Timis');
-INSERT INTO `cities` (`id`, `name`, `id_parent`, `Agentie`, `km`, `judet`) VALUES
+INSERT INTO `cities` (`id`, `name`, `county_id`, `Agentie`, `km`, `judet`) VALUES
 (15020, 'Luncanii de Jos', 70, 'Lugoj', 70, 'Timis'),
 (15021, 'Luncanii de Sus', 70, 'Lugoj', 75, 'Timis'),
 (15022, 'Lunga', 70, 'Timisoara', 62, 'Timis'),
@@ -12050,7 +12050,7 @@ INSERT INTO `cities` (`id`, `name`, `id_parent`, `Agentie`, `km`, `judet`) VALUE
 (16002, 'Ciortolom', 73, 'Barlad', 0, 'Vaslui'),
 (16003, 'Ciuperca', 73, 'Vaslui', 25, 'Vaslui'),
 (16004, 'Codaesti', 73, 'Vaslui', 40, 'Vaslui');
-INSERT INTO `cities` (`id`, `name`, `id_parent`, `Agentie`, `km`, `judet`) VALUES
+INSERT INTO `cities` (`id`, `name`, `county_id`, `Agentie`, `km`, `judet`) VALUES
 (16005, 'Codreni', 73, 'Vaslui', 0, 'Vaslui'),
 (16006, 'Condrea', 73, 'Husi', 71, 'Vaslui'),
 (16007, 'Copaceana', 73, 'Barlad', 68, 'Vaslui'),

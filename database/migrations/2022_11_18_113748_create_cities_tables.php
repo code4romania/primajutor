@@ -22,7 +22,7 @@ return new class extends Migration
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedBigInteger('id_parent');
+            $table->foreignId('county_id')->constrained('counties');
             $table->string('Agentie');
             $table->integer('km');
             $table->string('judet');
