@@ -14,7 +14,7 @@
                 <div class="search-box-container">
                     <div class="general-field">
                         <label for="searchedCounty"> {{__('txt.placeholders.county')}} </label>
-                        <select name="" id="county-select" onchange="getCities()">
+                        <select name="" id="county-select" onchange="getCities(@js(__('txt.placeholders.city')))">
                             <option disabled selected> {{__('txt.placeholders.county')}} </option>
                             @foreach($counties as $county)
                                 <option value="{{$county->id}}"> {{$county->name}} </option>
@@ -52,5 +52,9 @@
 @section('js')
     <script src="https://maps.googleapis.com/maps/api/js?key={{config('app.gmaps_api_key')}}&callback=initMap" async defer></script>
 
-    <script src="{{mix('assets/js/map.js')}}" helppoints='@json($helpPoints)' cityplaceholder="{{__('txt.placeholders.city')}}"></script>
+    <script>
+        var points = @json($helpPoints);
+    </script>
+
+    <script src="{{mix('assets/js/map.js')}}"></script>
 @endsection

@@ -1,6 +1,3 @@
-let keyLat = document.currentScript.getAttribute('keylat')
-let keyLng = document.currentScript.getAttribute('keylng')
-
 var map = null
 var myLocation = null
 var markers = []
@@ -9,7 +6,6 @@ var directionsService = null;
 var directionsDisplay = null;
 
 window.initMap = () => {
-
     map = new google.maps.Map(document.getElementById("map"), {
         zoom: 7,
         center: myLatLng,
@@ -19,7 +15,6 @@ window.initMap = () => {
     directionsDisplay = new google.maps.DirectionsRenderer({map: map, suppressMarkers: true, preserveViewport: true});
 
     if(keyLat && keyLng){
-    console.log(1);
         getHelpPoints(keyLat, keyLng)
     }
 

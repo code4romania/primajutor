@@ -47,6 +47,11 @@
 @section('js')
     <script src="https://maps.googleapis.com/maps/api/js?key={{config('app.gmaps_api_key')}}&libraries=places&callback=initMap" async defer></script>
 
-    <script src="{{mix('assets/js/localize.js')}}" keylat="{{$lat}}" keylng="{{$lng}}"></script>
+    <script>
+        var keyLat = @js($lat);
+        var keyLng = @js($lng);
+    </script>
+
+    <script src="{{mix('assets/js/localize.js')}}"></script>
 
 @endsection

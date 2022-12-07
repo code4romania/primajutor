@@ -2,16 +2,13 @@ var map = null
 var markers = []
 var myLatLng = { lat: 46.218160, lng: 25.158008 };
 
-let helppoints = JSON.parse(document.currentScript.getAttribute('helppoints'))
 let cityPlaceholder = document.currentScript.getAttribute('cityplaceholder')
 
-function initMap() {
+window.initMap = () => {
     map = new google.maps.Map(document.getElementById("map"), {
         zoom: 7,
         center: myLatLng,
     });
-
-    let points = helppoints;
 
     for(let i in points) {
         let marker = new google.maps.Marker({
@@ -23,7 +20,7 @@ function initMap() {
 
 }
 
-window.getCities = () =>
+window.getCities = (placeholder) =>
 {
     $.get('cities/' + $('#county-select').val(), function(data, status){
         getHelpPoints()
@@ -35,7 +32,7 @@ window.getCities = () =>
         option.value = "";
         option.disabled = true;
         option.selected = true;
-        option.text = cityPlaceholder;
+        option.text = placeholder;
 
         el.appendChild(option)
 
