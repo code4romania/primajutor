@@ -45,6 +45,8 @@ Guide users through getting your code up and running on their own system. In thi
     - php artisan migrate
     - php artisan make:filament-user
     - php artisan shield:install
+    - npm install
+    - npm run prod
 3. Software dependencies
 4. Latest releases
 5. API references
