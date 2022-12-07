@@ -13,7 +13,7 @@ class County extends Model
 
     public function cities(): HasMany
     {
-        return $this->hasMany(City::class, 'county_id');
+        return $this->hasMany(City::class);
     }
 
     public function helpPoints(): HasMany

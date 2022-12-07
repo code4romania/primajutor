@@ -13,7 +13,7 @@ class City extends Model
 
     public function county(): BelongsTo
     {
-        return $this->belongsTo(County::class, 'county_id');
+        return $this->belongsTo(County::class);
     }
 
     public function helpPoints(): HasMany
