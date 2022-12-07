@@ -5,9 +5,11 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\PageResource\Pages;
 use App\Filament\Resources\PageResource\RelationManagers;
 use App\Models\Page;
+use Closure;
 use Filament\Forms;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\Checkbox;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\Textarea;
@@ -22,6 +24,7 @@ use Filament\Tables\Columns\CheckboxColumn;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Str;
 
 class PageResource extends Resource
 {
@@ -39,8 +42,22 @@ class PageResource extends Resource
                     ->schema([
                         Checkbox::make('show_in_header'),
                         Checkbox::make('show_in_footer'),
-                        TextInput::make('title')->required(),
-                        TextInput::make('alias')->required(),
+                        TextInput::make('title')
+                            ->afterStateUpdated(function (Closure $get, Closure $set, ?string $state) {
+                                if (! $get('is_slug_changed_manually') && filled($state)) {
+                                    $set('alias', Str::slug($state));
+                                }
+                            })
+                            ->reactive()
+                            ->required(),
+                        TextInput::make('alias')->label('Slug')->afterStateUpdated(function (Closure $set) {
+                                $set('is_slug_changed_manually', true);
+                            })
+                            ->required()
+                            ->unique(),
+                        Hidden::make('is_slug_changed_manually')
+                            ->default(false)
+                            ->dehydrated(false),
                         RichEditor::make('content')
                             ->toolbarButtons([
                                 'attachFiles',
