@@ -12696,25 +12696,6 @@ INSERT INTO `cities` (`id`, `name`, `county_id`, `Agentie`, `km`, `judet`) VALUE
 (16647, 'Vulcaneasa', 74, 'Focsani', 24, 'Vrancea'),
 (16648, 'Vulturu', 74, 'Focsani', 22, 'Vrancea');
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `cities`
---
-ALTER TABLE `cities`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `cities`
---
-ALTER TABLE `cities`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16649;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
