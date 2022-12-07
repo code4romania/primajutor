@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -9,15 +11,12 @@ use Spatie\Translatable\HasTranslations;
 
 class HelpPoint extends Model
 {
-    use HasFactory, HasTranslations;
+    use HasFactory;
+    use HasTranslations;
 
     public $translatable = [
         'title',
         'time_schedule',
-    ];
-
-    public $casts = [
-        'title' => 'json'
     ];
 
     protected $fillable = [
@@ -28,7 +27,7 @@ class HelpPoint extends Model
         'lng',
         'time_schedule',
         'county_id',
-        'city_id'
+        'city_id',
     ];
 
     public function city(): BelongsTo
