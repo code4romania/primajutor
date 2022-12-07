@@ -32,18 +32,13 @@ class HelpCourse extends Model
         'date',
     ];
 
-    protected $with = [
-        'county',
-        'city',
-    ];
+    public function city(): BelongsTo
+    {
+        return $this->belongsTo(City::class);
+    }
 
     public function county(): BelongsTo
     {
         return $this->belongsTo(County::class);
-    }
-
-    public function city(): BelongsTo
-    {
-        return $this->belongsTo(City::class);
     }
 }
