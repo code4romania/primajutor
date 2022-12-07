@@ -22,15 +22,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `counties`
---
-
-CREATE TABLE `counties` (
-  `id` int NOT NULL,
-  `name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
-
---
 -- Dumping data for table `counties`
 --
 

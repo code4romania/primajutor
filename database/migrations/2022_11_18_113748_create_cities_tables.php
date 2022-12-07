@@ -14,6 +14,21 @@ return new class extends Migration
      */
     public function up()
     {
+        Schema::create('counties', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+        });
+
+        Schema::create('cities', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->unsignedBigInteger('id_parent');
+            $table->string('Agentie');
+            $table->integer('km');
+            $table->string('judet');
+        });
+
+
         $path = database_path('seeders/data/counties.sql');
         $sql = file_get_contents($path);
         DB::unprepared($sql);

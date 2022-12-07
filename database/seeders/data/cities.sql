@@ -22,19 +22,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cities`
---
-
-CREATE TABLE `cities` (
-  `id` int NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `id_parent` int NOT NULL,
-  `Agentie` varchar(255) NOT NULL,
-  `km` int NOT NULL,
-  `judet` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
-
---
 -- Dumping data for table `cities`
 --
 
