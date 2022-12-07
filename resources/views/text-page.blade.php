@@ -23,9 +23,6 @@
                     @endif
                     <div class="tp-container">
                         <h4> {{ $page->title }} </h4>
-{{--                        <span class="tp-art-date">--}}
-{{--                            12.05.2022--}}
-{{--                        </span>--}}
                         <div class="text-contente-element">
                             {!! $page->content !!}
                         </div>

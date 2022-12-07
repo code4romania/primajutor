@@ -2,7 +2,7 @@
     <div class="locations-route">
         <div class="location-left">
             <p class="location-type-icon">
-                <img src="{{asset('images/defib-icon.png')}}" alt="">
+                <img src="{{mix('assets/images/defib-icon.png')}}" alt="">
             </p>
             <div class="location-details">
                 <h3> {{$helpCourse->title}} </h3>
@@ -13,7 +13,7 @@
             </div>
         </div>
         <a href="{{$helpCourse->link}}" class="location-directions" target="_blank">
-            <i class="fa-solid fa-location-dot"></i>
+            <i class="fa fa-arrow-circle-right "></i>
             <span> {{__('txt.buttons.register')}} </span>
         </a>
     </div>

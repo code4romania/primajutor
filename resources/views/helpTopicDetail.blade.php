@@ -33,7 +33,7 @@
                         </div>
                         <div class="swiper-footer">
                             <div class="swiper-button-prev">
-                                <i class="fa-solid fa-arrow-left"></i>
+                                <i class="fa fa-arrow-left"></i>
                             </div>
                             <div class="swiper-button-next">
                                 {{__('txt.buttons.continue')}}
@@ -47,23 +47,6 @@
 @endsection
 
 @section('js')
-    <script>
-        var swiper = new Swiper(".first-aid-swiper", {
-            allowTouchMove: false,
-            autoHeight: true, //enable auto height
-            spaceBetween: 20,
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-        });
 
-        let open_menu_trigger = document.getElementById('menuTrigger')
-        let side_nav = document.getElementById('sideNav')
-
-        open_menu_trigger.addEventListener('click', () => {
-            side_nav.classList.toggle('sidenav-active')
-            open_menu_trigger.classList.toggle('active')
-        })
-    </script>
+    <script src="{{mix('assets/js/help-topic.js')}}"></script>
 @endsection
