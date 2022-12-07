@@ -1,13 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\HelpTopicResource\Pages;
-use App\Filament\Resources\HelpTopicResource\RelationManagers;
 use App\Models\HelpTopic;
-use Filament\Forms;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -17,9 +18,6 @@ use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Columns\TextInputColumn;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class HelpTopicResource extends Resource
 {
@@ -35,9 +33,12 @@ class HelpTopicResource extends Resource
             ->schema([
                 TextInput::make('title')->required(),
                 TextInput::make('slug')->required(),
-                TextInput::make('seo_title'),
-                TextArea::make('seo_keywords'),
-                TextArea::make('seo_description'),
+                Section::make('Seo')
+                    ->schema([
+                        TextInput::make('seo_title'),
+                        Textarea::make('seo_keywords'),
+                        Textarea::make('seo_description'),
+                    ]),
                 Repeater::make('helpTopicSteps')
                     ->relationship()
                     ->columnSpanFull()
@@ -46,7 +47,7 @@ class HelpTopicResource extends Resource
                         TextInput::make('title')->required(),
                         RichEditor::make('content')->required(),
                         SpatieMediaLibraryFileUpload::make('banner')->collection('banner'),
-                    ])
+                    ]),
             ]);
     }
 
