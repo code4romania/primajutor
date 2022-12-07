@@ -50,7 +50,7 @@ class HelpCourseResource extends Resource
                         if (!$county) {
                             return [];
                         }
-                        return City::where('id_parent', $county->id)->pluck('name', 'id');
+                        return City::where('county_id', $county->id)->pluck('name', 'id');
                     })
                     ->searchable()
                     ->reactive(),
