@@ -17,5 +17,11 @@
         "resolve-url-loader": "^5.0.0",
         "sass": "^1.51.0",
         "sass-loader": "^12.6.0"
+    },
+    "dependencies": {
+        "bootstrap": "^5.2.3",
+        "font-awesome": "^4.7.0",
+        "jquery": "^3.6.1",
+        "swiper": "^8.4.5"
     }
 }

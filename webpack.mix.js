@@ -11,8 +11,12 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/main.scss', 'public/css')
-    .copy('resources/css', 'public/css')
-    .copy('resources/images', 'public/images')
-    .copy('resources/js/scripts', 'public/scripts');
+mix.js('resources/js/app.js', 'public/assets/js')
+    .js('resources/js/help-topic.js', 'public/assets/js')
+    .js('resources/js/map.js', 'public/assets/js')
+    .js('resources/js/home.js', 'public/assets/js')
+    .js('resources/js/localize.js', 'public/assets/js')
+    .js('resources/js/courses.js', 'public/assets/js')
+    .sass('resources/sass/main.scss', 'public/assets/css')
+    .copy('resources/images', 'public/assets/images')
+    .version();

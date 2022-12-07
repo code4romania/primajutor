@@ -11,26 +11,9 @@
 
     @yield('head')
 
-    <!-- Bootstrap css -->
-    <link href="{{ mix('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
-
     <!-- Custom Css -->
-    <link rel="stylesheet" href="{{ mix('css/main.css') }}">
+    <link rel="stylesheet" href="{{ mix('assets/css/main.css') }}">
 
-    <!-- Fontawesome Css -->
-    <link href="{{asset('fontawesome/fontawesome-free-6.1.1-web/css/all.css')}}" rel="stylesheet">
-
-    <!-- Bootstrap Js -->
-    <script src="{{mix('scripts/bootstrap.bundle.min.js')}}"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-    <!-- App Js -->
-    <script src="{{mix('js/app.js')}}"></script>
 </head>
 <body>
 
@@ -40,17 +23,8 @@
 
     @include('partials.footer')
 </body>
+
+    <script src="{{mix('assets/js/app.js')}}"></script>
     @yield('js')
-    <script>
-
-       let open_menu_trigger = document.getElementById('menuTrigger')
-        let side_nav = document.getElementById('sideNav')
-
-        open_menu_trigger.addEventListener('click', () => {
-           side_nav.classList.toggle('sidenav-active')
-           open_menu_trigger.classList.toggle('active')
-        })
-
-    </script>
 
 </html>
