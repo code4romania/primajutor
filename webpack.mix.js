@@ -19,4 +19,9 @@ mix.js('resources/js/app.js', 'public/assets/js')
     .js('resources/js/courses.js', 'public/assets/js')
     .sass('resources/sass/main.scss', 'public/assets/css')
     .copy('resources/images', 'public/assets/images')
-    .version();
+    .version()
+    .options({
+        fileLoaderDirs:  {
+            fonts: 'assets/fonts'
+        }
+    });
