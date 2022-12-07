@@ -32,7 +32,7 @@ function initAutocomplete() {
     });
 }
 
-function clearMarkes() {
+function clearMarkers() {
     if(myLocation){
         myLocation.setMap(null)
     }
@@ -73,7 +73,7 @@ function showPosition(position) {
 function getHelpPoints(lat, lng)
 {
     $.get('localize-points?lat=' + lat + '&lng=' + lng, function(data, status){
-        clearMarkes()
+        clearMarkers()
         document.getElementById('location-list').innerHTML = ""
         let points = data.points
         document.getElementById('location-list').innerHTML = data.content

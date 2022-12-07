@@ -50,7 +50,7 @@ window.getHelpPoints = (showPointsList = false) =>
 {
     let city = $('#city-select').val() ? $('#city-select').val() : ""
     $.get('help-points/' + $('#county-select').val() + '/' + city, function(data, status){
-        clearMarkes()
+        clearMarkers()
         document.getElementById('location-list').innerHTML = ""
         let points = data.points
         if(showPointsList){
@@ -78,7 +78,7 @@ window.getHelpPoints = (showPointsList = false) =>
     });
 }
 
-function clearMarkes() {
+function clearMarkers() {
     for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(null);
     }
