@@ -11,7 +11,7 @@ class PageController extends Controller
 {
     public function __invoke(Page $page): View
     {
-        return view('text-page', [
+        return view('page', [
             'page' => $page,
         ]);
     }
