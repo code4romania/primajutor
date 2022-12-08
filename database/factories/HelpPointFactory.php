@@ -6,7 +6,6 @@ namespace Database\Factories;
 
 use App\Models\City;
 use App\Models\County;
-use App\Models\HelpPoint;
 
 class HelpPointFactory extends Factory
 {
@@ -19,7 +18,7 @@ class HelpPointFactory extends Factory
     {
         return [
             'title'         => $this->translatedFaker('sentence'),
-            'type'          => $this->faker->randomElement(HelpPoint::TYPES),
+            'type'          => $this->faker->randomElement(['defibrilator', 'punct-ajutor']),
             'county_id'     => County::factory(),
             'city_id'       => City::factory(),
             'address'       => $this->faker->address(),
