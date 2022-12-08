@@ -1,25 +1,29 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
+use App\Concerns\HasTranslations;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
-use Spatie\Translatable\HasTranslations;
 
-class HelpTopicStep extends Model implements HasMedia
+class GuideStep extends Model implements HasMedia
 {
-    use HasFactory, InteractsWithMedia, HasTranslations;
+    use HasFactory;
+    use InteractsWithMedia;
+    use HasTranslations;
 
     public $translatable = [
         'title',
-        'content'
+        'content',
     ];
 
     protected $fillable = [
-        'step_number',
+        'position',
         'title',
         'content',
     ];
@@ -29,8 +33,8 @@ class HelpTopicStep extends Model implements HasMedia
         $this->addMediaCollection('banner')->singleFile();
     }
 
-    public function helpTopic(): BelongsTo
+    public function guide(): BelongsTo
     {
-        return $this->belongsTo(HelpTopic::class, 'help_topic_id');
+        return $this->belongsTo(Guide::class);
     }
 }

@@ -3,10 +3,10 @@
 namespace App\Policies;
 
 use App\Models\User;
-use App\Models\Topic;
+use App\Models\Guide;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class TopicPolicy
+class GuidePolicy
 {
     use HandlesAuthorization;
 
@@ -18,19 +18,19 @@ class TopicPolicy
      */
     public function viewAny(User $user)
     {
-        return $user->can('view_any_topic');
+        return $user->can('view_any_guide');
     }
 
     /**
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Topic  $topic
+     * @param  \App\Models\Guide  $guide
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Topic $topic)
+    public function view(User $user, Guide $guide)
     {
-        return $user->can('view_topic');
+        return $user->can('view_guide');
     }
 
     /**
@@ -41,31 +41,31 @@ class TopicPolicy
      */
     public function create(User $user)
     {
-        return $user->can('create_topic');
+        return $user->can('create_guide');
     }
 
     /**
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Topic  $topic
+     * @param  \App\Models\Guide  $guide
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Topic $topic)
+    public function update(User $user, Guide $guide)
     {
-        return $user->can('update_topic');
+        return $user->can('update_guide');
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Topic  $topic
+     * @param  \App\Models\Guide  $guide
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Topic $topic)
+    public function delete(User $user, Guide $guide)
     {
-        return $user->can('delete_topic');
+        return $user->can('delete_guide');
     }
 
     /**
@@ -76,19 +76,19 @@ class TopicPolicy
      */
     public function deleteAny(User $user)
     {
-        return $user->can('delete_any_topic');
+        return $user->can('delete_any_guide');
     }
 
     /**
      * Determine whether the user can permanently delete.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Topic  $topic
+     * @param  \App\Models\Guide  $guide
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Topic $topic)
+    public function forceDelete(User $user, Guide $guide)
     {
-        return $user->can('force_delete_topic');
+        return $user->can('force_delete_guide');
     }
 
     /**
@@ -99,19 +99,19 @@ class TopicPolicy
      */
     public function forceDeleteAny(User $user)
     {
-        return $user->can('force_delete_any_topic');
+        return $user->can('force_delete_any_guide');
     }
 
     /**
      * Determine whether the user can restore.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Topic  $topic
+     * @param  \App\Models\Guide  $guide
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Topic $topic)
+    public function restore(User $user, Guide $guide)
     {
-        return $user->can('restore_topic');
+        return $user->can('restore_guide');
     }
 
     /**
@@ -122,19 +122,19 @@ class TopicPolicy
      */
     public function restoreAny(User $user)
     {
-        return $user->can('restore_any_topic');
+        return $user->can('restore_any_guide');
     }
 
     /**
      * Determine whether the user can replicate.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Topic  $topic
+     * @param  \App\Models\Guide  $guide
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function replicate(User $user, Topic $topic)
+    public function replicate(User $user, Guide $guide)
     {
-        return $user->can('replicate_topic');
+        return $user->can('replicate_guide');
     }
 
     /**
@@ -145,7 +145,7 @@ class TopicPolicy
      */
     public function reorder(User $user)
     {
-        return $user->can('reorder_topic');
+        return $user->can('reorder_guide');
     }
 
 }

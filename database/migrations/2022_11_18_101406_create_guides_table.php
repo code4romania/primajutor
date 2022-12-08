@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,14 +15,20 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('topics', function (Blueprint $table) {
+        Schema::create('guides', function (Blueprint $table) {
             $table->id();
+            $table->timestamps();
             $table->json('title');
             $table->string('slug');
-            $table->json('seo_title')->nullable();
-            $table->json('seo_description')->nullable();
-            $table->json('seo_keywords')->nullable();
+        });
+
+        Schema::create('guide_steps', function (Blueprint $table) {
+            $table->id();
             $table->timestamps();
+            $table->foreignId('guide_id')->constrained('guides')->cascadeOnDelete();
+            $table->integer('position')->index();
+            $table->json('title');
+            $table->json('content');
         });
     }
 
@@ -31,6 +39,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('topics');
+        Schema::dropIfExists('guide_steps');
+        Schema::dropIfExists('guides');
     }
 };

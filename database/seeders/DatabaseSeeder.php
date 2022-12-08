@@ -6,8 +6,9 @@ namespace Database\Seeders;
 
 use App\Models\County;
 use App\Models\Course;
+use App\Models\Guide;
+use App\Models\GuideStep;
 use App\Models\Point;
-use App\Models\Topic;
 use App\Models\User;
 use BezhanSalleh\FilamentShield\Commands\MakeShieldGenerateCommand;
 use BezhanSalleh\FilamentShield\Commands\MakeShieldSuperAdminCommand;
@@ -34,8 +35,9 @@ class DatabaseSeeder extends Seeder
             '--user' => $user->id,
         ]);
 
-        Topic::factory()
+        Guide::factory()
             ->count(50)
+            ->has(GuideStep::factory(fake()->randomDigitNotZero()), 'steps')
             ->create();
 
         County::query()

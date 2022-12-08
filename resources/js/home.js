@@ -23,7 +23,7 @@ window.initMap = () => {
 
 
 
-function seeAll(){
+window.seeAll = () =>{
     document.getElementById("js-home-see-all").remove()
     let elems = document.querySelectorAll('.js-topic-link')
     for(let i in elems){

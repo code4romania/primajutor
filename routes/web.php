@@ -17,8 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'home'])->name('home');
-Route::get('/ofera-prim-ajutor/{helpTopicSlug}', [HomeController::class, 'helpTopic'])->name('helpTopic.detail');
+Route::get('/', HomeController::class)->name('home');
+Route::get('/ghid/{guide:slug?}', GuideController::class)->name('guide.show');
+
 Route::get('/harta', [HomeController::class, 'mapSection'])->name('map');
 Route::get('/cursuri', [HomeController::class, 'coursesSection'])->name('courses');
 Route::get('/localizare', [HomeController::class, 'localizeLatLng'])->name('localize');

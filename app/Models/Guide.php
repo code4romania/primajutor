@@ -9,28 +9,22 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Topic extends Model
+class Guide extends Model
 {
     use HasFactory;
     use HasTranslations;
 
     public $translatable = [
         'title',
-        'seo_title',
-        'seo_keywords',
-        'seo_description',
     ];
 
     protected $fillable = [
         'title',
         'slug',
-        'seo_title',
-        'seo_keywords',
-        'seo_description',
     ];
 
-    public function helpTopicSteps(): HasMany
+    public function steps(): HasMany
     {
-        return $this->hasMany(HelpTopicStep::class);
+        return $this->hasMany(GuideStep::class)->orderBy('position', 'asc');
     }
 }

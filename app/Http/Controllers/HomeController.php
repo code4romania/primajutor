@@ -4,43 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\City;
 use App\Models\County;
+use App\Models\Guide;
 use App\Models\HelpCourse;
 use App\Models\HelpPoint;
-use App\Models\HelpTopic;
-use Illuminate\Http\Request;
+use App\Models\Point;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\View;
 
 class HomeController extends Controller
 {
-    public function home()
+    public function __invoke()
     {
-        $helpTopics = HelpTopic::get();
-        $helpPoints = HelpPoint::select('county_id', 'lat', 'lng', 'title')->groupBy('county_id', 'lat', 'lng', 'title')->get();
-
-        $helpPointsArr = [];
-        foreach ($helpPoints as $hp) {
-            $helpPointsArr[] = [
-                'lat' => $hp->lat,
-                'lng' => $hp->lng,
-                'title' => $hp->title,
-            ];
-        }
-        return view('home', compact('helpTopics', 'helpPointsArr'));
-    }
-
-    public function helpTopic($helpTopicSlug)
-    {
-        $helpTopic = HelpTopic::where('slug', $helpTopicSlug)
-            ->with([
-                       'helpTopicSteps' => function ($q) {
-                           $q->orderBy('step_number', 'ASC');
-                       },
-                       'helpTopicSteps.media'
-                   ])
-            ->firstOrFail();
-
-        return view('helpTopicDetail', compact('helpTopic'));
+        return view('home', [
+            'guides' => Guide::all(),
+            'points' => Point::all(['title', 'lat', 'lng']),
+        ]);
     }
 
     public function mapSection()
