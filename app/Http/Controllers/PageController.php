@@ -1,16 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use App\Models\Page;
-use Illuminate\Http\Request;
+use Illuminate\Contracts\View\View;
 
 class PageController extends Controller
 {
-    public function page($alias)
+    public function __invoke(Page $page): View
     {
-        $page = Page::where('alias', $alias)->with('media')->firstOrFail();
-
-        return view('text-page', compact('page'));
+        return view('text-page', [
+            'page' => $page,
+        ]);
     }
 }

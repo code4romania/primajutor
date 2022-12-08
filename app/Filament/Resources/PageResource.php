@@ -6,14 +6,14 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\PageResource\Pages;
 use App\Models\Page;
-use Closure;
+use Camya\Filament\Forms\Components\TitleWithSlugInput;
 use Filament\Forms;
 use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
-use Illuminate\Support\Str;
+use FilamentTiptapEditor\TiptapEditor;
 
 class PageResource extends Resource
 {
@@ -31,39 +31,18 @@ class PageResource extends Resource
                     ->schema([
                         Forms\Components\Card::make()
                             ->schema([
-                                Forms\Components\TextInput::make('title')
-                                    ->afterStateUpdated(function (Closure $get, Closure $set, ?string $state) {
-                                        if (! $get('is_slug_changed_manually') && filled($state)) {
-                                            $set('alias', Str::slug($state));
-                                        }
-                                    })
-                                    ->reactive()
-                                    ->required(),
-                                Forms\Components\TextInput::make('alias')->label('Slug')->afterStateUpdated(function (Closure $set) {
-                                    $set('is_slug_changed_manually', true);
-                                })
-                                    ->required()
-                                    ->unique(),
-                                Forms\Components\Hidden::make('is_slug_changed_manually')
-                                    ->default(false)
-                                    ->dehydrated(false),
+                                TitleWithSlugInput::make(),
 
                                 Forms\Components\SpatieMediaLibraryFileUpload::make('banner')
                                     ->collection('banner')
                                     ->image(),
 
-                                Forms\Components\RichEditor::make('content'),
-
                             ]),
-
-                        Forms\Components\Section::make('SEO')
+                        Forms\Components\Section::make('Content')
                             ->schema([
-                                Forms\Components\TextInput::make('seo_title'),
-                                Forms\Components\TagsInput::make('seo_keywords')
-                                    ->separator(),
-                                Forms\Components\Textarea::make('seo_description'),
-                            ])
-                            ->collapsible(),
+                                TiptapEditor::make('content')
+                                    ->disableLabel(),
+                            ]),
                     ])
                     ->columnSpan(2),
 

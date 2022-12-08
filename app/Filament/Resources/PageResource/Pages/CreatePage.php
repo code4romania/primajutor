@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Filament\Resources\PageResource\Pages;
 
 use App\Filament\Resources\PageResource;
@@ -15,7 +17,7 @@ class CreatePage extends CreateRecord
     protected function getActions(): array
     {
         return [
-//            Actions\LocaleSwitcher::make(),
+            Actions\LocaleSwitcher::make(),
         ];
     }
 }

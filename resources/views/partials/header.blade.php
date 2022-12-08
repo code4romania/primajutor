@@ -30,7 +30,7 @@
                         <a href="{{route('courses')}}"> {{__('txt.buttons.help_courses')}} </a>
                         @foreach($pages as $page)
                             @if($page->show_in_header)
-                                <a href="{{route('page', ['alias' => $page->alias])}}"> {{ $page->title }} </a>
+                                <a href="{{route('page', $page)}}"> {{ $page->title }} </a>
                             @endif
                         @endforeach
                         <a href="https://code4.ro/en/donate/" class="text-success"> {{__('txt.buttons.donate')}} </a>

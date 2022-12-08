@@ -23,7 +23,7 @@
                         @foreach($pages as $page)
                             @if($page->show_in_footer)
                             <li>
-                                <a href="{{route('page', $page->alias)}}"> {{ $page->title }} </a>
+                                <a href="{{route('page', $page)}}"> {{ $page->title }} </a>
                             </li>
                             @endif
                         @endforeach

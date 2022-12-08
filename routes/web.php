@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
@@ -26,5 +28,4 @@ Route::get('/help-points/{countyId}/{cityId?}', [HomeController::class, 'helpPoi
 Route::get('/courses-list/{countyId}/{cityId?}', [HomeController::class, 'coursesList'])->name('coursesList');
 Route::get('/lang/{lang}', [HomeController::class, 'setLocale'])->name('setLocale');
 
-
-Route::get('/{alias}', [PageController::class, 'page'])->name('page')->where('alias','^(?!livewire).*$');
+Route::get('/{page:slug}', PageController::class)->name('page');

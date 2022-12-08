@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -10,25 +12,21 @@ use Spatie\Translatable\HasTranslations;
 
 class Page extends Model implements HasMedia
 {
-    use HasFactory, InteractsWithMedia, HasTranslations;
+    use HasFactory;
+    use InteractsWithMedia;
+    use HasTranslations;
 
     public $translatable = [
         'title',
         'content',
-        'seo_title',
-        'seo_description',
-        'seo_keywords'
     ];
 
     protected $fillable = [
         'show_in_header',
         'show_in_footer',
         'title',
-        'alias',
+        'slug',
         'content',
-        'seo_title',
-        'seo_description',
-        'seo_keywords'
     ];
 
     public function registerMediaCollections(): void
