@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\HelpCourseResource\Pages;
-use App\Models\City;
 use App\Models\County;
 use App\Models\HelpCourse;
 use Filament\Forms;
@@ -74,34 +73,22 @@ class HelpCourseResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('title'),
-                Tables\Columns\TextColumn::make('date'),
-                Tables\Columns\TextColumn::make('county_id')
-                    ->label('County')
-                    ->formatStateUsing(function (string $state) {
-                        $county = County::find($state);
-
-                        return (string) $county->name;
-                    }),
-                Tables\Columns\TextColumn::make('city_id')
-                    ->label('City')
-                    ->formatStateUsing(function (string $state) {
-                        $city = City::find($state);
-
-                        return (string) $city->name;
-                    }),
+                Tables\Columns\TextColumn::make('date')
+                    ->date(),
+                Tables\Columns\TextColumn::make('county.name')
+                    ->label('County'),
+                Tables\Columns\TextColumn::make('city.name')
+                    ->label('City'),
             ])
-            ->filters(
-                [
-                    Tables\Filters\SelectFilter::make('county')
-                        ->relationship('county', 'name', fn (Builder $query) => $query->whereHas('helpCourses'))
-                        ->searchable(),
+            ->filters([
+                Tables\Filters\SelectFilter::make('county')
+                    ->relationship('county', 'name', fn (Builder $query) => $query->whereHas('helpCourses'))
+                    ->searchable(),
 
-                    Tables\Filters\SelectFilter::make('city')
-                        ->relationship('city', 'name', fn (Builder $query) => $query->whereHas('helpCourses'))
-                        ->searchable(),
-                ],
-                layout: Tables\Filters\Layout::AboveContent,
-            )
+                Tables\Filters\SelectFilter::make('city')
+                    ->relationship('city', 'name', fn (Builder $query) => $query->whereHas('helpCourses'))
+                    ->searchable(),
+            ], layout: Tables\Filters\Layout::AboveContent)
             ->actions([
                 Tables\Actions\EditAction::make(),
             ])
