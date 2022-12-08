@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Database\Seeders;
 
 use App\Models\County;
-use App\Models\HelpCourse;
+use App\Models\Course;
 use App\Models\HelpPoint;
 use App\Models\HelpTopic;
 use App\Models\User;
@@ -42,7 +42,7 @@ class DatabaseSeeder extends Seeder
             ->with('cities:id,county_id')
             ->get('id')
             ->each(function (County $county) {
-                HelpCourse::factory()
+                Course::factory()
                     ->count(5)
                     ->recycle($county)
                     ->recycle($county->cities)

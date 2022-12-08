@@ -4,15 +4,16 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Concerns\HasLocation;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\Translatable\HasTranslations;
 
-class HelpCourse extends Model
+class Course extends Model
 {
     use HasFactory;
     use HasTranslations;
+    use HasLocation;
 
     public $translatable = [
         'title',
@@ -31,14 +32,4 @@ class HelpCourse extends Model
         'link',
         'date',
     ];
-
-    public function city(): BelongsTo
-    {
-        return $this->belongsTo(City::class);
-    }
-
-    public function county(): BelongsTo
-    {
-        return $this->belongsTo(County::class);
-    }
 }

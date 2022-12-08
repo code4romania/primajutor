@@ -7,7 +7,7 @@ namespace Database\Factories;
 use App\Models\City;
 use App\Models\County;
 
-class HelpCourseFactory extends Factory
+class CourseFactory extends Factory
 {
     /**
      * Define the model's default state.

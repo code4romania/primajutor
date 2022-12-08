@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\HelpCourseResource\Pages;
+use App\Filament\Resources\CourseResource\Pages;
 use App\Models\County;
-use App\Models\HelpCourse;
+use App\Models\Course;
 use Filament\Forms;
 use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Form;
@@ -15,11 +15,11 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 
-class HelpCourseResource extends Resource
+class CourseResource extends Resource
 {
     use Translatable;
 
-    protected static ?string $model = HelpCourse::class;
+    protected static ?string $model = Course::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-academic-cap';
 
@@ -82,11 +82,11 @@ class HelpCourseResource extends Resource
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('county')
-                    ->relationship('county', 'name', fn (Builder $query) => $query->whereHas('helpCourses'))
+                    ->relationship('county', 'name', fn (Builder $query) => $query->whereHas('courses'))
                     ->searchable(),
 
                 Tables\Filters\SelectFilter::make('city')
-                    ->relationship('city', 'name', fn (Builder $query) => $query->whereHas('helpCourses'))
+                    ->relationship('city', 'name', fn (Builder $query) => $query->whereHas('courses'))
                     ->searchable(),
             ], layout: Tables\Filters\Layout::AboveContent)
             ->actions([
@@ -107,9 +107,9 @@ class HelpCourseResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListHelpCourses::route('/'),
-            'create' => Pages\CreateHelpCourse::route('/create'),
-            'edit' => Pages\EditHelpCourse::route('/{record}/edit'),
+            'index' => Pages\ListCourses::route('/'),
+            'create' => Pages\CreateCourse::route('/create'),
+            'edit' => Pages\EditCourse::route('/{record}/edit'),
         ];
     }
 }

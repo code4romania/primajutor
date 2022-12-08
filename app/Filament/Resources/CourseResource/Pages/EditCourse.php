@@ -1,16 +1,18 @@
 <?php
 
-namespace App\Filament\Resources\HelpCourseResource\Pages;
+declare(strict_types=1);
 
-use App\Filament\Resources\HelpCourseResource;
+namespace App\Filament\Resources\CourseResource\Pages;
+
+use App\Filament\Resources\CourseResource;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\EditRecord;
 
-class EditHelpCourse extends EditRecord
+class EditCourse extends EditRecord
 {
     use EditRecord\Concerns\Translatable;
 
-    protected static string $resource = HelpCourseResource::class;
+    protected static string $resource = CourseResource::class;
 
     protected function getActions(): array
     {
