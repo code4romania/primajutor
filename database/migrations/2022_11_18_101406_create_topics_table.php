@@ -13,18 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('help_points', function (Blueprint $table) {
+        Schema::create('topics', function (Blueprint $table) {
             $table->id();
             $table->json('title');
-            $table->string('type');
-
-            $table->foreignId('city_id')->constrained('cities');
-            $table->foreignId('county_id')->constrained('counties');
-            $table->string('address');
-
-            $table->json('time_schedule');
-            $table->string('lat');
-            $table->string('lng');
+            $table->string('slug');
+            $table->json('seo_title')->nullable();
+            $table->json('seo_description')->nullable();
+            $table->json('seo_keywords')->nullable();
             $table->timestamps();
         });
     }
@@ -36,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('help_points');
+        Schema::dropIfExists('topics');
     }
 };

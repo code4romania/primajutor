@@ -3,10 +3,10 @@
 namespace App\Policies;
 
 use App\Models\User;
-use App\Models\HelpPoint;
+use App\Models\Topic;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class HelpPointPolicy
+class TopicPolicy
 {
     use HandlesAuthorization;
 
@@ -18,19 +18,19 @@ class HelpPointPolicy
      */
     public function viewAny(User $user)
     {
-        return $user->can('view_any_help::point');
+        return $user->can('view_any_topic');
     }
 
     /**
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\HelpPoint  $helpPoint
+     * @param  \App\Models\Topic  $topic
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, HelpPoint $helpPoint)
+    public function view(User $user, Topic $topic)
     {
-        return $user->can('view_help::point');
+        return $user->can('view_topic');
     }
 
     /**
@@ -41,31 +41,31 @@ class HelpPointPolicy
      */
     public function create(User $user)
     {
-        return $user->can('create_help::point');
+        return $user->can('create_topic');
     }
 
     /**
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\HelpPoint  $helpPoint
+     * @param  \App\Models\Topic  $topic
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, HelpPoint $helpPoint)
+    public function update(User $user, Topic $topic)
     {
-        return $user->can('update_help::point');
+        return $user->can('update_topic');
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\HelpPoint  $helpPoint
+     * @param  \App\Models\Topic  $topic
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, HelpPoint $helpPoint)
+    public function delete(User $user, Topic $topic)
     {
-        return $user->can('delete_help::point');
+        return $user->can('delete_topic');
     }
 
     /**
@@ -76,19 +76,19 @@ class HelpPointPolicy
      */
     public function deleteAny(User $user)
     {
-        return $user->can('delete_any_help::point');
+        return $user->can('delete_any_topic');
     }
 
     /**
      * Determine whether the user can permanently delete.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\HelpPoint  $helpPoint
+     * @param  \App\Models\Topic  $topic
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, HelpPoint $helpPoint)
+    public function forceDelete(User $user, Topic $topic)
     {
-        return $user->can('force_delete_help::point');
+        return $user->can('force_delete_topic');
     }
 
     /**
@@ -99,19 +99,19 @@ class HelpPointPolicy
      */
     public function forceDeleteAny(User $user)
     {
-        return $user->can('force_delete_any_help::point');
+        return $user->can('force_delete_any_topic');
     }
 
     /**
      * Determine whether the user can restore.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\HelpPoint  $helpPoint
+     * @param  \App\Models\Topic  $topic
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, HelpPoint $helpPoint)
+    public function restore(User $user, Topic $topic)
     {
-        return $user->can('restore_help::point');
+        return $user->can('restore_topic');
     }
 
     /**
@@ -122,19 +122,19 @@ class HelpPointPolicy
      */
     public function restoreAny(User $user)
     {
-        return $user->can('restore_any_help::point');
+        return $user->can('restore_any_topic');
     }
 
     /**
      * Determine whether the user can replicate.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\HelpPoint  $helpPoint
+     * @param  \App\Models\Topic  $topic
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function replicate(User $user, HelpPoint $helpPoint)
+    public function replicate(User $user, Topic $topic)
     {
-        return $user->can('replicate_help::point');
+        return $user->can('replicate_topic');
     }
 
     /**
@@ -145,7 +145,7 @@ class HelpPointPolicy
      */
     public function reorder(User $user)
     {
-        return $user->can('reorder_help::point');
+        return $user->can('reorder_topic');
     }
 
 }

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\HelpTopicResource\Pages;
-use App\Models\HelpTopic;
+use App\Filament\Resources\TopicResource\Pages;
+use App\Models\Topic;
 use Closure;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Repeater;
@@ -21,11 +21,11 @@ use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Support\Str;
 
-class HelpTopicResource extends Resource
+class TopicResource extends Resource
 {
     use Translatable;
 
-    protected static ?string $model = HelpTopic::class;
+    protected static ?string $model = Topic::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-support';
 
@@ -92,9 +92,9 @@ class HelpTopicResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListHelpTopics::route('/'),
-            'create' => Pages\CreateHelpTopic::route('/create'),
-            'edit' => Pages\EditHelpTopic::route('/{record}/edit'),
+            'index' => Pages\ListTopics::route('/'),
+            'create' => Pages\CreateTopic::route('/create'),
+            'edit' => Pages\EditTopic::route('/{record}/edit'),
         ];
     }
 }

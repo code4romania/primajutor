@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\HelpPointResource\Pages;
+use App\Filament\Resources\PointResource\Pages;
 use App\Models\County;
-use App\Models\HelpPoint;
+use App\Models\Point;
 use Filament\Forms;
 use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Form;
@@ -15,11 +15,11 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 
-class HelpPointResource extends Resource
+class PointResource extends Resource
 {
     use Translatable;
 
-    protected static ?string $model = HelpPoint::class;
+    protected static ?string $model = Point::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-location-marker';
 
@@ -110,11 +110,11 @@ class HelpPointResource extends Resource
                     ]),
 
                 Tables\Filters\SelectFilter::make('county')
-                    ->relationship('county', 'name', fn (Builder $query) => $query->whereHas('helpPoints'))
+                    ->relationship('county', 'name', fn (Builder $query) => $query->whereHas('points'))
                     ->searchable(),
 
                 Tables\Filters\SelectFilter::make('city')
-                    ->relationship('city', 'name', fn (Builder $query) => $query->whereHas('helpPoints'))
+                    ->relationship('city', 'name', fn (Builder $query) => $query->whereHas('points'))
                     ->searchable(),
             ], layout: Tables\Filters\Layout::AboveContent)
             ->actions([
@@ -135,9 +135,9 @@ class HelpPointResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListHelpPoints::route('/'),
-            'create' => Pages\CreateHelpPoint::route('/create'),
-            'edit' => Pages\EditHelpPoint::route('/{record}/edit'),
+            'index' => Pages\ListPoints::route('/'),
+            'create' => Pages\CreatePoint::route('/create'),
+            'edit' => Pages\EditPoint::route('/{record}/edit'),
         ];
     }
 }

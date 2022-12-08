@@ -1,16 +1,18 @@
 <?php
 
-namespace App\Filament\Resources\HelpPointResource\Pages;
+declare(strict_types=1);
 
-use App\Filament\Resources\HelpPointResource;
+namespace App\Filament\Resources\PointResource\Pages;
+
+use App\Filament\Resources\PointResource;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\EditRecord;
 
-class EditHelpPoint extends EditRecord
+class EditPoint extends EditRecord
 {
     use EditRecord\Concerns\Translatable;
 
-    protected static string $resource = HelpPointResource::class;
+    protected static string $resource = PointResource::class;
 
     protected function getActions(): array
     {

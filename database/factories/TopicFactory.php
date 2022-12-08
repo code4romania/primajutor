@@ -6,7 +6,7 @@ namespace Database\Factories;
 
 use Faker\Generator;
 
-class HelpTopicFactory extends Factory
+class TopicFactory extends Factory
 {
     /**
      * Define the model's default state.

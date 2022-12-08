@@ -1,16 +1,18 @@
 <?php
 
-namespace App\Filament\Resources\HelpTopicResource\Pages;
+declare(strict_types=1);
 
-use App\Filament\Resources\HelpTopicResource;
+namespace App\Filament\Resources\TopicResource\Pages;
+
+use App\Filament\Resources\TopicResource;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\EditRecord;
 
-class EditHelpTopic extends EditRecord
+class EditTopic extends EditRecord
 {
     use EditRecord\Concerns\Translatable;
 
-    protected static string $resource = HelpTopicResource::class;
+    protected static string $resource = TopicResource::class;
 
     protected function getActions(): array
     {

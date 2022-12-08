@@ -6,8 +6,8 @@ namespace Database\Seeders;
 
 use App\Models\County;
 use App\Models\Course;
-use App\Models\HelpPoint;
-use App\Models\HelpTopic;
+use App\Models\Point;
+use App\Models\Topic;
 use App\Models\User;
 use BezhanSalleh\FilamentShield\Commands\MakeShieldGenerateCommand;
 use BezhanSalleh\FilamentShield\Commands\MakeShieldSuperAdminCommand;
@@ -34,7 +34,7 @@ class DatabaseSeeder extends Seeder
             '--user' => $user->id,
         ]);
 
-        HelpTopic::factory()
+        Topic::factory()
             ->count(50)
             ->create();
 
@@ -48,7 +48,7 @@ class DatabaseSeeder extends Seeder
                     ->recycle($county->cities)
                     ->create();
 
-                HelpPoint::factory()
+                Point::factory()
                     ->count(50)
                     ->recycle($county)
                     ->recycle($county->cities)

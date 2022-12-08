@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,13 +15,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('help_topics', function (Blueprint $table) {
+        Schema::create('points', function (Blueprint $table) {
             $table->id();
             $table->json('title');
-            $table->string('slug');
-            $table->json('seo_title')->nullable();
-            $table->json('seo_description')->nullable();
-            $table->json('seo_keywords')->nullable();
+            $table->string('type');
+
+            $table->foreignId('city_id')->constrained('cities');
+            $table->foreignId('county_id')->constrained('counties');
+            $table->string('address');
+
+            $table->json('time_schedule');
+            $table->string('lat');
+            $table->string('lng');
             $table->timestamps();
         });
     }
@@ -31,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('help_topics');
+        Schema::dropIfExists('points');
     }
 };
