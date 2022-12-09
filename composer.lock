@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "759ad8b8b311dd232d5422232ad52076",
+    "content-hash": "ae6ebe0ef6e4ba5be21f9c39c51b29dc",
     "packages": [
         {
             "name": "akaunting/laravel-money",
@@ -129,6 +129,63 @@
                 "source": "https://github.com/asm89/stack-cors/tree/v2.1.1"
             },
             "time": "2022-01-18T09:12:03+00:00"
+        },
+        {
+            "name": "awcodes/filament-tiptap-editor",
+            "version": "v2.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/awcodes/filament-tiptap-editor.git",
+                "reference": "d7e5a80d2c7a8a1e9cb09c6aee196d35fb16da20"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/awcodes/filament-tiptap-editor/zipball/d7e5a80d2c7a8a1e9cb09c6aee196d35fb16da20",
+                "reference": "d7e5a80d2c7a8a1e9cb09c6aee196d35fb16da20",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^2.0",
+                "intervention/image": "^2.7",
+                "php": "^8.0.2",
+                "spatie/laravel-package-tools": "^1.9.2"
+            },
+            "type": "package",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "FilamentTiptapEditor\\FilamentTiptapEditorServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "FilamentTiptapEditor\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Adam Weston",
+                    "email": "awcodes1@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A Tiptap ingtegration for Filament Admin/Forms.",
+            "keywords": [
+                "filament",
+                "framework",
+                "laravel",
+                "tiptap"
+            ],
+            "support": {
+                "issues": "https://github.com/awcodes/filament-tiptap-editor/issues",
+                "source": "https://github.com/awcodes/filament-tiptap-editor/tree/v2.0.3"
+            },
+            "time": "2022-11-30T19:24:49+00:00"
         },
         {
             "name": "bezhansalleh/filament-shield",
@@ -424,6 +481,83 @@
                 }
             ],
             "time": "2022-08-10T22:54:19+00:00"
+        },
+        {
+            "name": "camya/filament-title-with-slug",
+            "version": "v0.5.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/camya/filament-title-with-slug.git",
+                "reference": "5273b6c6fe5ecb533adc14a3c8d06ee5bada8bbd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/camya/filament-title-with-slug/zipball/5273b6c6fe5ecb533adc14a3c8d06ee5bada8bbd",
+                "reference": "5273b6c6fe5ecb533adc14a3c8d06ee5bada8bbd",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^2.16",
+                "illuminate/contracts": "^9.0",
+                "php": "^8.0.2",
+                "spatie/laravel-package-tools": "^1.13.0"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.0",
+                "nunomaduro/collision": "^6.0",
+                "nunomaduro/larastan": "^2.0.1",
+                "orchestra/testbench": "^7.0",
+                "pestphp/pest": "^1.21",
+                "pestphp/pest-plugin-laravel": "^1.1",
+                "phpstan/extension-installer": "^1.1",
+                "phpstan/phpstan-deprecation-rules": "^1.0",
+                "phpstan/phpstan-phpunit": "^1.0",
+                "phpunit/phpunit": "^9.5",
+                "roave/security-advisories": "dev-latest",
+                "spatie/laravel-ray": "^1.31"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Camya\\Filament\\FilamentTitleWithSlugServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Camya\\Filament\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Scheibel",
+                    "email": "contact@camya.com",
+                    "homepage": "https://www.camya.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "TitleWithSlugInput - Easy Permalink Slugs for the FilamentPHP Form Builder (PHP / Laravel / Livewire)",
+            "homepage": "https://github.com/camya/filament-title-with-slug",
+            "keywords": [
+                "alpinejs",
+                "filament",
+                "framework",
+                "laravel",
+                "livewire",
+                "permalink",
+                "slug",
+                "tailwindcss"
+            ],
+            "support": {
+                "issues": "https://github.com/camya/filament-title-with-slug/issues",
+                "source": "https://github.com/camya/filament-title-with-slug/tree/v0.5.3"
+            },
+            "time": "2022-11-21T14:57:50+00:00"
         },
         {
             "name": "danharrin/date-format-converter",

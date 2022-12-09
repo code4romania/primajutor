@@ -3,9 +3,9 @@
         <div class="location-left">
             <p class="location-type-icon">
                 @if($helpPoint->type == 'defibrilator')
-                    <img src="{{asset('images/defib-icon.png')}}" alt="">
+                    <img src="{{mix('assets/images/defib-icon.png')}}" alt="">
                 @else
-                    <img src="{{asset('images/vector.png')}}" alt="">
+                    <img src="{{mix('assets/images/vector.png')}}" alt="">
                 @endif
             </p>
             <div class="location-details">
@@ -16,7 +16,7 @@
                 <p class="pt-0">{{$helpPoint->time_schedule}}</p>
                 <a href="javascript:navFunc({{$helpPoint->lat}}, {{$helpPoint->lng}})" class="ud-link">
                     {{__('txt.buttons.see_on_map')}}
-                    <i class="fa-solid fa-diamond-turn-right"></i>
+                    <i class="fa fa-diamond-turn-right"></i>
                 </a>
             </div>
         </div>

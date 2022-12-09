@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="bg-gray">
             <div class="container flex py-3 header-global-container">
-                <img src="{{asset('images/commitglobal.svg')}}">
+                <img src="{{mix('assets/images/commitglobal.svg')}}">
                 <div class="ml-3 text-sm font-medium">
                     <span>{{__('txt.header.commit_global')}}</span>
                     <a href="https://www.commitglobal.org" target="_blank" rel="noopener" class="text-blue-600 hover:underline whitespace-nowrap">
@@ -15,7 +15,7 @@
             <div class="header-container">
                 <div class="header-left">
                     <a href="{{route('home')}}" class="logo-box">
-                        <img src="{{asset('images/logo_v2.png')}}" alt="Logo">
+                        <img src="{{mix('assets/images/logo_v2.png')}}" alt="Logo">
                     </a>
                 </div>
                 <div class="menu-trigger">
@@ -30,7 +30,7 @@
                         <a href="{{route('courses')}}"> {{__('txt.buttons.help_courses')}} </a>
                         @foreach($pages as $page)
                             @if($page->show_in_header)
-                                <a href="{{route('page', ['alias' => $page->alias])}}"> {{ $page->title }} </a>
+                                <a href="{{route('page', $page)}}"> {{ $page->title }} </a>
                             @endif
                         @endforeach
                         <a href="https://code4.ro/en/donate/" class="text-success"> {{__('txt.buttons.donate')}} </a>
@@ -38,12 +38,12 @@
                             @if(app()->getLocale() == "ro")
                                 <a href="javascript:void(0)" class="lang-selected-link">
                                     <span> Ro </span>
-                                    <i class="fa-solid fa-angle-down"></i>
+                                    <i class="fa fa-angle-down"></i>
                                 </a>
                             @elseif(app()->getLocale() == "en")
                                 <a href="javascript:void(0)" class="lang-selected-link">
                                     <span> En </span>
-                                    <i class="fa-solid fa-angle-down"></i>
+                                    <i class="fa fa-angle-down"></i>
                                 </a>
                             @endif
                             <div class="lang-dropdown">

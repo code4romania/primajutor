@@ -6,9 +6,10 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\HelpTopicResource\Pages;
 use App\Models\HelpTopic;
+use Closure;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
-use Filament\Forms\Components\Section;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -18,6 +19,7 @@ use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
+use Illuminate\Support\Str;
 
 class HelpTopicResource extends Resource
 {
@@ -31,14 +33,25 @@ class HelpTopicResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('title')->required(),
-                TextInput::make('slug')->required(),
-                Section::make('Seo')
-                    ->schema([
-                        TextInput::make('seo_title'),
-                        Textarea::make('seo_keywords'),
-                        Textarea::make('seo_description'),
-                    ]),
+                TextInput::make('title')
+                    ->afterStateUpdated(function (Closure $get, Closure $set, ?string $state) {
+                        if (! $get('is_slug_changed_manually') && filled($state)) {
+                            $set('slug', Str::slug($state));
+                        }
+                    })
+                    ->reactive()
+                    ->required(),
+                TextInput::make('slug')->afterStateUpdated(function (Closure $set) {
+                    $set('is_slug_changed_manually', true);
+                })
+                    ->required()
+                    ->unique(),
+                Hidden::make('is_slug_changed_manually')
+                    ->default(false)
+                    ->dehydrated(false),
+                TextInput::make('seo_title'),
+                TextArea::make('seo_keywords'),
+                TextArea::make('seo_description'),
                 Repeater::make('helpTopicSteps')
                     ->relationship()
                     ->columnSpanFull()

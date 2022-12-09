@@ -1,27 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PageResource\Pages;
-use App\Filament\Resources\PageResource\RelationManagers;
 use App\Models\Page;
+use Camya\Filament\Forms\Components\TitleWithSlugInput;
 use Filament\Forms;
-use Filament\Forms\Components\Card;
-use Filament\Forms\Components\Checkbox;
-use Filament\Forms\Components\RichEditor;
-use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
-use Filament\Forms\Components\Textarea;
-use Filament\Forms\Components\TextInput;
 use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Form;
-use Filament\Resources\Pages\CreateRecord;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
-use Filament\Tables\Columns\CheckboxColumn;
-use Filament\Tables\Columns\TextColumn;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use FilamentTiptapEditor\TiptapEditor;
 
 class PageResource extends Resource
 {
@@ -35,43 +27,44 @@ class PageResource extends Resource
     {
         return $form
             ->schema([
-                Card::make()
+                Forms\Components\Group::make()
                     ->schema([
-                        Checkbox::make('show_in_header'),
-                        Checkbox::make('show_in_footer'),
-                        TextInput::make('title')->required(),
-                        TextInput::make('alias')->required(),
-                        RichEditor::make('content')
-                            ->toolbarButtons([
-                                'attachFiles',
-                                'blockquote',
-                                'bold',
-                                'bulletList',
-                                'codeBlock',
-                                'h2',
-                                'h3',
-                                'italic',
-                                'link',
-                                'orderedList',
-                                'redo',
-                                'strike',
-                                'undo',
+                        Forms\Components\Card::make()
+                            ->schema([
+                                TitleWithSlugInput::make(),
+
+                                Forms\Components\SpatieMediaLibraryFileUpload::make('banner')
+                                    ->collection('banner')
+                                    ->image(),
+
                             ]),
-                        SpatieMediaLibraryFileUpload::make('banner')->collection('banner'),
-                        TextInput::make('seo_title'),
-                        Textarea::make('seo_keywords'),
-                        Textarea::make('seo_description'),
+                        Forms\Components\Section::make('Content')
+                            ->schema([
+                                TiptapEditor::make('content')
+                                    ->disableLabel(),
+                            ]),
                     ])
-            ]);
+                    ->columnSpan(2),
+
+                Forms\Components\Group::make()
+                    ->schema([
+                        Forms\Components\Section::make('Navigation')
+                            ->schema([
+                                Forms\Components\Toggle::make('show_in_header'),
+                                Forms\Components\Toggle::make('show_in_footer'),
+                            ]),
+                    ]),
+            ])
+            ->columns(3);
     }
 
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                CheckboxColumn::make('show_in_header'),
-                CheckboxColumn::make('show_in_footer'),
-                TextColumn::make('title')
+                Tables\Columns\CheckboxColumn::make('show_in_header'),
+                Tables\Columns\CheckboxColumn::make('show_in_footer'),
+                Tables\Columns\TextColumn::make('title'),
             ])
             ->filters([
                 //

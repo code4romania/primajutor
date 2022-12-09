@@ -17,16 +17,13 @@ return new class extends Migration
             $table->id();
             $table->json('title');
 
-            $table->integer('city_id');
-            $table->integer('county_id');
+            $table->foreignId('city_id')->constrained('cities');
+            $table->foreignId('county_id')->constrained('counties');
 
             $table->date('date');
             $table->json('info');
             $table->string('link');
             $table->timestamps();
-
-            $table->foreign('city_id')->references('id')->on('cities')->onDelete('restrict');
-            $table->foreign('county_id')->references('id')->on('counties')->onDelete('restrict');
         });
     }
 
