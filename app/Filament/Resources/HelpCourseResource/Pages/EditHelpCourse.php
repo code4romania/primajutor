@@ -19,4 +19,9 @@ class EditHelpCourse extends EditRecord
             Actions\LocaleSwitcher::make(),
         ];
     }
+
+    public function updatingActiveFormLocale(): void
+    {
+        // disable auto save on locale switch
+    }
 }
