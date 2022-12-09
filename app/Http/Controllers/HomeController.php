@@ -101,7 +101,7 @@ class HomeController extends Controller
 
     public function citiesByCounty($countyId)
     {
-        $cities = City::where('id_parent', $countyId)->pluck('name', 'id');
+        $cities = City::where('county_id', $countyId)->pluck('name', 'id');
 
         return response()->json($cities);
     }

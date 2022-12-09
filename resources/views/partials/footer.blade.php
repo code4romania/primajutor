@@ -3,7 +3,7 @@
        <div class="container d-flex items-center justify-content-end">
            <span class="mx-4">A project by</span>
            <a href="https://code4.ro/ro/code-for-romania-war-task-force">
-                <img src="{{asset('images/lidl-logo.png')}}" alt="Lidl logo" class="h-6">
+                <img src="{{mix('assets/images/lidl-logo.png')}}" alt="Lidl logo" class="h-6">
             </a>
        </div>
     </div>
@@ -13,7 +13,7 @@
                 <div class="footer-top">
                     <div class="footer-left">
                         <a href="/" class="footer-logo">
-                            <img src="{{asset('images/logo_footer.png')}}" alt="Logo">
+                            <img src="{{mix('assets/images/logo_footer.png')}}" alt="Logo">
                         </a>
                     </div>
                     <ul class="footer-list">
@@ -23,7 +23,7 @@
                         @foreach($pages as $page)
                             @if($page->show_in_footer)
                             <li>
-                                <a href="{{route('page', $page->alias)}}"> {{ $page->title }} </a>
+                                <a href="{{route('page', $page)}}"> {{ $page->title }} </a>
                             </li>
                             @endif
                         @endforeach

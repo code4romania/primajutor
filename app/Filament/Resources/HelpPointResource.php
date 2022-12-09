@@ -1,27 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\HelpPointResource\Pages;
-use App\Filament\Resources\HelpPointResource\RelationManagers;
-use App\Models\City;
 use App\Models\County;
 use App\Models\HelpPoint;
 use Filament\Forms;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
-use Filament\Pages\Actions\LocaleSwitcher;
 use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
-use Filament\Tables\Columns\SelectColumn;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Filters\Layout;
-use Filament\Tables\Filters\SelectFilter;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 
 class HelpPointResource extends Resource
 {
@@ -35,34 +27,62 @@ class HelpPointResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('title')->required()->translateLabel(),
-                Select::make('type')->options([
-                    'defibrilator' => 'Defibrilator',
-                    'punct-ajutor' => 'Punct Ajutor'
-                ])->required(),
-                Select::make('county_id')
-                    ->label('County')
-                    ->options(County::all()->pluck('name', 'id')->toArray())
-                    ->required()
-                    ->reactive()
-                    ->searchable()
-                    ->afterStateUpdated(fn (callable $set) => $set('city_id', null)),
-                Select::make('city_id')
-                    ->label('City')
-                    ->required()
-                    ->options(function (callable $get) {
-                        $county = County::find($get('county_id'));
-                        if (!$county) {
-                            return [];
-                        }
-                        return City::where('id_parent', $county->id)->pluck('name', 'id');
-                    })
-                    ->searchable()
-                    ->reactive(),
-                TextInput::make('address')->required(),
-                TextInput::make('lat')->required(),
-                TextInput::make('lng')->required(),
-                TextInput::make('time_schedule')->required()
+                Forms\Components\Card::make()
+                    ->schema([
+                        Forms\Components\TextInput::make('title')
+                            ->required()
+                            ->columnSpanFull(),
+
+                        Forms\Components\Select::make('type')
+                            ->options([
+                                'defibrilator' => 'Defibrilator',
+                                'punct-ajutor' => 'Punct Ajutor',
+                            ])
+                            ->required(),
+
+                        Forms\Components\TextInput::make('time_schedule')
+                            ->required(),
+                    ])
+                    ->columns(2),
+
+                Forms\Components\Section::make('Location')
+                    ->schema([
+                        Forms\Components\TextInput::make('address')
+                            ->required()
+                            ->columnSpanFull(),
+
+                        Forms\Components\Select::make('county_id')
+                            ->label('County')
+                            ->options(County::pluck('name', 'id'))
+                            ->required()
+                            ->reactive()
+                            ->searchable()
+                            ->afterStateUpdated(fn (callable $set) => $set('city_id', null)),
+
+                        Forms\Components\Select::make('city_id')
+                            ->label('City')
+                            ->required()
+                            ->options(
+                                fn (callable $get) => County::find($get('county_id'))
+                                    ?->cities
+                                    ->pluck('name', 'id')
+                            )
+                            ->searchable()
+                            ->reactive(),
+
+                        Forms\Components\TextInput::make('lat')
+                            ->numeric()
+                            ->minValue(-90)
+                            ->maxValue(90)
+                            ->required(),
+
+                        Forms\Components\TextInput::make('lng')
+                            ->numeric()
+                            ->minValue(-180)
+                            ->maxValue(180)
+                            ->required(),
+                    ])
+                    ->columns(2),
 
             ]);
     }
@@ -71,37 +91,32 @@ class HelpPointResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('title'),
-                TextColumn::make('type')->enum([
+                Tables\Columns\TextColumn::make('title'),
+                Tables\Columns\TextColumn::make('type')->enum([
                     'defibrilator' => 'Defibrilator',
-                    'punct-ajutor' => 'Punct Ajutor'
+                    'punct-ajutor' => 'Punct Ajutor',
                 ]),
-                TextColumn::make('county_id')
-                    ->label('County')
-                    ->formatStateUsing(function (string $state) {
-                        $county = County::find($state);
-                        return (string) $county->name;
-                    }),
-                TextColumn::make('city_id')
-                    ->label('City')
-                    ->formatStateUsing(function (string $state) {
-                        $city = City::find($state);
-                        return (string) $city->name;
-                    }),
-                TextColumn::make('address'),
+                Tables\Columns\TextColumn::make('county.name')
+                    ->label('County'),
+                Tables\Columns\TextColumn::make('city.name')
+                    ->label('City'),
+                Tables\Columns\TextColumn::make('address'),
             ])
             ->filters([
-                    SelectFilter::make('county_id')
-                        ->label('County')
-                        ->options(County::whereHas('helpPoints')->pluck('name', 'id')->toArray())
-                        ->searchable(),
-                    SelectFilter::make('city_id')
-                        ->label('City')
-                        ->options(City::whereHas('helpPoints')->pluck('name', 'id')->toArray())
-                        ->searchable()
-                ],
-                layout: Layout::AboveContent,
-            )
+                Tables\Filters\SelectFilter::make('type')
+                    ->options([
+                        'defibrilator' => 'Defibrilator',
+                        'punct-ajutor' => 'Punct Ajutor',
+                    ]),
+
+                Tables\Filters\SelectFilter::make('county')
+                    ->relationship('county', 'name', fn (Builder $query) => $query->whereHas('helpPoints'))
+                    ->searchable(),
+
+                Tables\Filters\SelectFilter::make('city')
+                    ->relationship('city', 'name', fn (Builder $query) => $query->whereHas('helpPoints'))
+                    ->searchable(),
+            ], layout: Tables\Filters\Layout::AboveContent)
             ->actions([
                 Tables\Actions\EditAction::make(),
             ])
