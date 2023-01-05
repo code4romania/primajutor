@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\City;
 use App\Models\County;
+use App\Models\Course;
 use App\Models\Guide;
-use App\Models\HelpCourse;
-use App\Models\HelpPoint;
 use App\Models\Point;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\View;
@@ -24,7 +23,7 @@ class HomeController extends Controller
     public function mapSection()
     {
         $counties = County::get();
-        $helpPoints = HelpPoint::get();
+        $helpPoints = Point::get();
         return view('map', compact('counties', 'helpPoints'));
     }
 
@@ -51,7 +50,7 @@ class HomeController extends Controller
         $lng1 = $lng;
 
         $points = [];
-        HelpPoint::chunk(100, function($helpPoints) use($lat1, $lng1, &$points)
+        Point::chunk(100, function($helpPoints) use($lat1, $lng1, &$points)
         {
             foreach ($helpPoints as $point){
                 $lat2 = (float) $point->lat;
@@ -86,7 +85,7 @@ class HomeController extends Controller
 
     public function helpPoints($countyId, $cityId = null)
     {
-        $helpPoints = HelpPoint::where('county_id', $countyId);
+        $helpPoints = Point::where('county_id', $countyId);
 
         if($cityId){
             $helpPoints->where('city_id', $cityId);
@@ -101,7 +100,7 @@ class HomeController extends Controller
 
     public function coursesList($countyId, $cityId = null)
     {
-        $helpCourses = HelpCourse::where('county_id', $countyId);
+        $helpCourses = Course::where('county_id', $countyId);
 
         if($cityId){
             $helpCourses->where('city_id', $cityId);

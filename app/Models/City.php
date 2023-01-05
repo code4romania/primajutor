@@ -20,8 +20,8 @@ class City extends Model
         return $this->belongsTo(County::class);
     }
 
-    public function helpPoints(): HasMany
+    public function points(): HasMany
     {
-        return $this->hasMany(HelpPoint::class);
+        return $this->hasMany(Point::class);
     }
 }

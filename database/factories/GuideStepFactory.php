@@ -21,6 +21,7 @@ class GuideStepFactory extends Factory
             'content'  => $this->translatedFaker(
                 fn () => '<p>' . implode('</p><p>', $this->faker->paragraphs()) . '</p>'
             ),
+            'position' => $this->faker->numberBetween(0,10)
         ];
     }
 }
