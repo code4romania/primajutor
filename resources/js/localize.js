@@ -72,7 +72,12 @@ function showPosition(position) {
 
 function getHelpPoints(lat, lng)
 {
-    $.get('localize-points?lat=' + lat + '&lng=' + lng, function(data, status){
+    const url = route('map.points', {
+        lat: lat,
+        lng: lng,
+    });
+
+    $.get(url, function(data, status){
         clearMarkers()
         document.getElementById('location-list').innerHTML = ""
         let points = data.points

@@ -23,7 +23,7 @@ window.initMap = () => {
 
 
 
-function seeAll(){
+window.seeAll = () =>{
     document.getElementById("js-home-see-all").remove()
     let elems = document.querySelectorAll('.js-topic-link')
     for(let i in elems){
@@ -43,7 +43,7 @@ window.getLocation = () => {
 function showPosition(position) {
     let lat = position.coords.latitude
     let lng = position.coords.longitude
-    window.location.href = "localizare?lat=" +lat + "&lng=" + lng
+    window.location.href = route('map.localize', { lat, lng })
 
     $('#btn-spin').hide()
     $('#btn-txt').show()
@@ -57,6 +57,7 @@ function initAutocomplete() {
         var place = autocomplete.getPlace();
         let lat = place.geometry['location'].lat()
         let lng = place.geometry['location'].lng()
-        window.location.href = "localizare?lat=" +lat + "&lng=" + lng
+        window.location.href = route('map.localize', { lat, lng })
     });
 }
+

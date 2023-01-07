@@ -22,7 +22,11 @@ window.initMap = () => {
 
 window.getCities = (placeholder) =>
 {
-    $.get('cities/' + $('#county-select').val(), function(data, status){
+    const url = route('map.citiesInCounty', {
+        county: $('#county-select').val(),
+    });
+
+    $.get(url, function(data, status){
         getHelpPoints()
         let option = null;
         let el = document.getElementById('city-select')
@@ -48,8 +52,12 @@ window.getCities = (placeholder) =>
 
 window.getHelpPoints = (showPointsList = false) =>
 {
-    let city = $('#city-select').val() ? $('#city-select').val() : ""
-    $.get('help-points/' + $('#county-select').val() + '/' + city, function(data, status){
+    const url = route('map.points.search', {
+        county: $('#county-select').val(),
+        city: $('#city-select').val(),
+    });
+
+    $.get(url, function(data, status){
         clearMarkers()
         document.getElementById('location-list').innerHTML = ""
         let points = data.points

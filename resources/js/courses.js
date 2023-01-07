@@ -1,6 +1,10 @@
 window.getCities = (placeholder) =>
 {
-    $.get('cities/' + $('#county-select').val(), function(data, status){
+    const url = route('map.citiesInCounty', {
+        county: $('#county-select').val(),
+    });
+
+    $.get(url, function(data, status){
         getCoursesList()
         let option = null;
         let el = document.getElementById('city-select')
@@ -26,9 +30,12 @@ window.getCities = (placeholder) =>
 
 window.getCoursesList = () =>
 {
-    let city = $('#city-select').val() ? $('#city-select').val() : ""
-    $.get('courses-list/' + $('#county-select').val() + '/' + city, function(data, status){
-        document.getElementById('courses-list').innerHTML = ""
+    const url = route('courses.search', {
+        county: $('#county-select').val(),
+        city: $('#city-select').val(),
+    });
+
+    $.get(url, function(data, status){
         document.getElementById('courses-list').innerHTML = data.content
     });
 }

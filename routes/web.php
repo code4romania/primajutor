@@ -2,7 +2,11 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\GuideController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LocaleController;
+use App\Http\Controllers\MapController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,15 +21,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'home'])->name('home');
-Route::get('/ofera-prim-ajutor/{helpTopicSlug}', [HomeController::class, 'helpTopic'])->name('helpTopic.detail');
-Route::get('/harta', [HomeController::class, 'mapSection'])->name('map');
-Route::get('/cursuri', [HomeController::class, 'coursesSection'])->name('courses');
-Route::get('/localizare', [HomeController::class, 'localizeLatLng'])->name('localize');
-Route::get('/localize-points', [HomeController::class, 'localizeLatLngPoints'])->name('localizePoints');
-Route::get('/cities/{countyId}', [HomeController::class, 'citiesByCounty'])->name('citiesByCounty');
-Route::get('/help-points/{countyId}/{cityId?}', [HomeController::class, 'helpPoints'])->name('helpPoints');
-Route::get('/courses-list/{countyId}/{cityId?}', [HomeController::class, 'coursesList'])->name('coursesList');
-Route::get('/lang/{lang}', [HomeController::class, 'setLocale'])->name('setLocale');
+Route::get('/', HomeController::class)->name('home');
+Route::get('/ghid/{guide:slug?}', GuideController::class)->name('guide.show');
+Route::get('/cursuri', [CourseController::class, 'index'])->name('courses.index');
+Route::get('/cursuri/{county}/{city?}', [CourseController::class, 'search'])->name('courses.search');
+
+Route::get('/harta', [MapController::class, 'show'])->name('map');
+Route::get('/harta/localizare', [MapController::class, 'localize'])->name('map.localize');
+Route::get('/harta/puncte', [MapController::class, 'points'])->name('map.points');
+Route::get('/harta/puncte/{county}/{city?}', [MapController::class, 'pointsSearch'])->name('map.points.search');
+Route::get('/harta/orase/{county}', [MapController::class, 'citiesInCounty'])->name('map.citiesInCounty');
+
+Route::get('/locale/{locale}', LocaleController::class)->name('setLocale');
 
 Route::get('/{page:slug}', PageController::class)->name('page');
