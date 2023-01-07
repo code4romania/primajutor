@@ -15,6 +15,7 @@
     <!-- Custom Css -->
     <link rel="stylesheet" href="{{ mix('assets/css/main.css') }}">
 
+    @routes
 </head>
 
 <body>

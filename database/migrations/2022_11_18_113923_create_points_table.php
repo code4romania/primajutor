@@ -25,8 +25,8 @@ return new class extends Migration
             $table->string('address');
 
             $table->json('time_schedule');
-            $table->string('lat');
-            $table->string('lng');
+            $table->float('lat');
+            $table->float('lng');
             $table->timestamps();
         });
     }

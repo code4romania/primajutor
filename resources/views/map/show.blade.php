@@ -4,30 +4,28 @@
     <main class="app-main">
         <div class="bg-gray">
             <div class="container flex py-3 header-global-container">
-                <a href="{{route('home')}}" target="_blank" rel="noopener" class="breadcrumb-link whitespace-nowrap">
-                    {{__('txt.buttons.home')}}
-                </a> / {{__('txt.buttons.localize_in_town')}}
+                <a href="{{ route('home') }}" target="_blank" rel="noopener" class="breadcrumb-link whitespace-nowrap">
+                    {{ __('txt.buttons.home') }}
+                </a> / {{ __('txt.buttons.localize_in_town') }}
             </div>
         </div>
         <section class="hero-section">
             <div class="container-fluid">
                 <div class="search-box-container">
                     <div class="general-field">
-                        <label for="searchedCounty"> {{__('txt.placeholders.county')}} </label>
+                        <label for="searchedCounty"> {{ __('txt.placeholders.county') }} </label>
                         <select name="" id="county-select" onchange="getCities(@js(__('txt.placeholders.city')))">
-                            <option disabled selected> {{__('txt.placeholders.county')}} </option>
-                            @foreach($counties as $county)
-                                <option value="{{$county->id}}"> {{$county->name}} </option>
+                            <option disabled selected> {{ __('txt.placeholders.county') }} </option>
+                            @foreach ($counties as $county)
+                                <option value="{{ $county->id }}"> {{ $county->name }} </option>
                             @endforeach
                         </select>
-                        <!-- <input type="text" placeholder="Cauta judet" id="searchedCounty"> -->
                     </div>
                     <div class="general-field">
-                        <label for="searchedLocal"> {{__('txt.placeholders.city')}} </label>
+                        <label for="searchedLocal"> {{ __('txt.placeholders.city') }} </label>
                         <select name="" id="city-select" onchange="getHelpPoints(true)">
-                            <option value="" disabled selected> {{__('txt.placeholders.city')}} </option>
+                            <option value="" disabled selected> {{ __('txt.placeholders.city') }} </option>
                         </select>
-                        <!-- <input type="text" placeholder="Cauta oras" id="searchedLocal"> -->
                     </div>
                 </div>
                 <div class="mapouter">
@@ -50,11 +48,12 @@
 @endsection
 
 @section('js')
-    <script src="https://maps.googleapis.com/maps/api/js?key={{config('app.gmaps_api_key')}}&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ config('app.gmaps_api_key') }}&callback=initMap" async
+        defer></script>
 
     <script>
-        var points = @json($helpPoints);
+        var points = @json($points);
     </script>
 
-    <script src="{{mix('assets/js/map.js')}}"></script>
+    <script src="{{ mix('assets/js/map.js') }}"></script>
 @endsection
