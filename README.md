@@ -10,7 +10,7 @@ Insert bullets description of the project if available.
 
 Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project.
 
-[Contributing](#contributing) | [Built with](#built-with) | [Repos and projects](#repos-and-projects) | [Deployment](#deployment) | [Feedback](#feedback) | [License](#license) | [About Code for Romania](#about-code-for-romania)
+[Contributing](#contributing) | [Built with](#built-with) | [Development](#development) | [Deployment](#deployment) | [Feedback](#feedback) | [License](#license) | [About Code for Romania](#about-code-for-romania)
 
 ## Contributing
 
@@ -32,9 +32,47 @@ If you would like to suggest new functionality, open an Issue and mark it as a _
 
 ### Database technology & provider
 
-## Repos and projects
+## Development
 
-Mention all related repos and projects.
+This project uses Laravel Sail, Laravel's default Docker development environment.
+
+After running the [initial setup](#initial-setup), run this command to start up the environment:
+```sh
+./vendor/bin/sail up -d
+```
+
+and then this command to rebuild the css / js assets on change:
+
+```sh
+./vendor/bin/sail npm run watch
+```
+
+### Initial setup
+
+```sh
+# 1. Install composer dependencies
+docker run --rm -v ${PWD}:/app -w /app composer:latest composer install --ignore-platform-reqs --no-scripts --no-interaction --prefer-dist --optimize-autoloader
+
+# 2. Copy the environment variables file
+cp .env.example .env
+
+# 3. Start the application
+./vendor/bin/sail up -d
+
+# 4. Install npm dependencies
+./vendor/bin/sail npm ci
+
+# 5. Build the frontend
+./vendor/bin/sail npm run dev
+
+# 6. Generate the app secret key
+./vendor/bin/sail artisan key:generate
+
+# 7. Migrate and seed the database
+./vendor/bin/sail artisan migrate:fresh --seed
+```
+
+For more information on Laravel Sail, check out the [official documentation](https://laravel.com/docs/9.x/sail).
 
 ## Deployment
 
