@@ -2,8 +2,8 @@
 
 @section('content')
     <main class="app-main">
-        <section class="hero-section">
-            <div class="container-fluid">
+        {{-- <section class="hero-section">
+            <div class="container mx-auto sm:px-4 max-w-full mx-auto sm:px-4">
                 <div class="search-box-container">
                     <h4> {{ __('txt.home.top_title') }} </h4>
                     <p> {{ __('txt.home.top_subtitle') }} </p>
@@ -21,13 +21,13 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
         <section class="emerg-section">
             <div class="emerg-container">
                 <h4> {{ __('txt.home.warning_strip') }} </h4>
             </div>
             <div class="fa-container">
-                <div class="container">
+                <div class="container mx-auto sm:px-4">
                     <h4> {{ __('txt.home.help_topics_title') }} </h4>
                     <div class="cases-accordion">
 
@@ -39,7 +39,7 @@
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         @endforeach
-                        <button class="see-all btn" id="js-home-see-all" onclick="seeAll()">
+                        <button class="see-all inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline" id="js-home-see-all" onclick="seeAll()">
                             <span> {{ __('txt.buttons.see_all_topics') }} </span>
                             <i class="fa fa-angle-down"></i>
                         </button>

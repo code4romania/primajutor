@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+const tailwindcss = require('tailwindcss');
 
 /*
  |--------------------------------------------------------------------------
@@ -23,5 +24,8 @@ mix.js('resources/js/app.js', 'public/assets/js')
     .options({
         fileLoaderDirs:  {
             fonts: 'assets/fonts'
-        }
+        },
+        processCssUrls: false,
+        postCss: [tailwindcss('./tailwind.config.js')],
+        
     });

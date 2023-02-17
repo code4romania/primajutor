@@ -1,14 +1,14 @@
 <footer class="main-footer">
-    <div class="container-fluid d-flex items-center justify-content-end py-3 layout footer-strip-container">
-        <div class="container d-flex items-center justify-content-end">
+    <div class="container mx-auto sm:px-4 max-w-full mx-auto sm:px-4 flex items-center justify-end py-3 layout footer-strip-container">
+        <div class="container mx-auto sm:px-4 flex items-center justify-end">
             <span class="mx-4">A project by</span>
             <a href="https://code4.ro/ro/code-for-romania-war-task-force">
-                <img src="{{ mix('assets/images/lidl-logo.png') }}" alt="Lidl logo" class="h-6">
+                <img src="{{ mix('assets/images/lidl-logo.png') }}" alt="Lidl logo" class="mb-2 font-medium leading-tight text-base">
             </a>
         </div>
     </div>
-    <div class="container-fluid pt-3">
-        <div class="container">
+    <div class="container mx-auto sm:px-4 max-w-full mx-auto  pt-3">
+        <div class="container mx-auto sm:px-4">
             <div class="footer-container">
                 <div class="footer-top">
                     <div class="footer-left">
