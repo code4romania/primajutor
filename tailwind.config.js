@@ -2,7 +2,13 @@
 module.exports = {
   content: ["./resources/**/*.blade.php",],
   theme: {
-    colors: {
+    fontFamily: {
+      sans: ['Titillium Web', 'Roboto',  'sans-serif']
+    },
+  
+   
+    extend: { 
+       colors: {
       transparent: 'transparent',
       black: '#000',
       white: '#fff',
@@ -13,11 +19,7 @@ module.exports = {
      'main-gray': '#828c9e',
      'text-gray': '#828282',
      'success-color': '#7BCF95',
-    },
-    fontFamily: {
-      sans: ['Titillium Web', 'sans-serif'],
-    },
-    extend: {},
+    },},
   },
   plugins: [],
 }
