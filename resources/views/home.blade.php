@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <main class="app-main">
+    <main class="app-main pb-96">
         {{-- <section class="hero-section">
             <div class="container mx-auto sm:px-4 max-w-full mx-auto sm:px-4">
                 <div class="search-box-container">

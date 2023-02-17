@@ -18,6 +18,7 @@ module.exports = {
      'bg-gray': '#F2F2F2',
      'main-gray': '#828c9e',
      'text-gray': '#828282',
+     'yellow': '#FFEB4F',
      'success-color': '#7BCF95',
     },},
   },

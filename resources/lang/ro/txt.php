@@ -19,6 +19,8 @@ return [
         "courses" => "Cursuri",
         "contact" => "Contact",
         "sustain" => "Susține",
+        
+
     ],
     "placeholders" => [
         "county" => "Judet",
@@ -33,7 +35,15 @@ return [
         "help_topics_title" => "Ofera prim ajutor asistat"
     ],
     "footer" => [
-        'contact_txt' => "Dacă vrei să iei legătura cu noi o poți face pe e-mail la adresa"
+        'commit_txt' => "Organizație neguvernamentală independentă, neafiliată politic și apolitică.",
+        'project_by' => "Un proiect dezvoltat de ",
+        'supported_by' => "Cu sprijinul",
+        "source_code" => "Codul sursa",
+        'util_links' => "Link-uri utile",
+        'legal_info' => "Informații legale",
+        'policy' => "Politică de confidențialitate",
+        'terms' => "Termeni și condiții",
+
     ],
     "header" => [
         'code_for_romania' => "O soluție Code for Romania"
