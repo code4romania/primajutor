@@ -34,17 +34,17 @@
 
                         {{-- ToDo add routes to menu  --}}
 
-                        <a class="mr-10 text-lg font-bold" href="{{ route('home') }}"> {{ __('txt.buttons.home') }} </a>
+                        <a class="mr-10 text-lg font-bold" href="{{ route('home') }}"> {{ __('txt.header.home') }} </a>
                         <a class="mr-10 text-lg font-bold" href="{{ route('home') }}">
-                            {{ __('txt.buttons.about_project') }} </a>
-                        <a class="mr-10 text-lg font-bold" href="{{ route('home') }}"> {{ __('txt.buttons.guides') }}
+                            {{ __('txt.header.about_project') }} </a>
+                        <a class="mr-10 text-lg font-bold" href="{{ route('home') }}"> {{ __('txt.header.guides') }}
                         </a>
-                        <a class="mr-10 text-lg font-bold" href="{{ route('home') }}"> {{ __('txt.buttons.courses') }}
+                        <a class="mr-10 text-lg font-bold" href="{{ route('home') }}"> {{ __('txt.header.courses') }}
                         </a>
                         <a class="mr-10 text-lg font-bold" href="{{ route('courses.index') }}">
-                            {{ __('txt.buttons.contact') }} </a>
+                            {{ __('txt.header.contact') }} </a>
                         <a class="mr-10 text-lg font-bold" href="{{ route('courses.index') }}">
-                            {{ __('txt.buttons.sustain') }} </a>
+                            {{ __('txt.header.sustain') }} </a>
                         @foreach ($pages as $page)
                             @if ($page->show_in_header)
                                 <a href="{{ route('page', $page) }}"> {{ $page->title }} </a>
@@ -58,7 +58,7 @@
             </div>
         </div>
         <div class="flex h-16 items-center justify-center bg-main-color">
-            <h4 class="text-3xl font-bold text-white">Dacă aveti o urgență sunați la 112</h4>
+            <h4 class="text-3xl font-bold text-white"> {{ __('txt.header.warning_strip') }}</h4>
         </div>
     </div>
 </header>
