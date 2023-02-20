@@ -37,9 +37,9 @@
                         <a class="mr-10 text-lg font-bold" href="{{ route('home') }}"> {{ __('txt.header.home') }} </a>
                         <a class="mr-10 text-lg font-bold" href="{{ route('home') }}">
                             {{ __('txt.header.about_project') }} </a>
-                        <a class="mr-10 text-lg font-bold" href="{{ route('home') }}"> {{ __('txt.header.guides') }}
+                        <a class="mr-10 text-lg font-bold" href="{{ route('guide.show') }}"> {{ __('txt.header.guides') }}
                         </a>
-                        <a class="mr-10 text-lg font-bold" href="{{ route('home') }}"> {{ __('txt.header.courses') }}
+                        <a class="mr-10 text-lg font-bold" href="{{ route('courses.index') }}"> {{ __('txt.header.courses') }}
                         </a>
                         <a class="mr-10 text-lg font-bold" href="{{ route('courses.index') }}">
                             {{ __('txt.header.contact') }} </a>

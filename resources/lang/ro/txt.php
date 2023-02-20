@@ -14,12 +14,21 @@ return [
         "see_on_map" => "Vezi pe Harta",
         "find_more" => "Află mai multe",
         "directions" => "Direcții",
+        "prev_step" => "Pasul anterior",
+        "next_step" => "Pasul următor",
+        "back_first" => "Înapoi la prima pagină",
+        "search" => "Caută",
+        "details" => "Detalii",
+
+
     ],
 
     "placeholders" => [
         "county" => "Judet",
         "city" => "Oras",
         "find_address" => "Caută adresă",
+        "course_type" => "Tip de curs",
+        "date_start" => "Data de început",
     ],
 
      "footer" => [
@@ -30,6 +39,8 @@ return [
         'util_links' => "Link-uri utile",
         'legal_info' => "Informații legale",
         'policy' => "Politică de confidențialitate",
+        "donate" => "Doneaza",
+        "about_project" => "Despre proiect",
         'terms' => "Termeni și condiții",
 
     ],
@@ -65,5 +76,16 @@ return [
 
     ],
 
+    "guide" => [
+        "step" => "Pasul",
+        "other_guides" => "Alte ghiduri utile",
+        "title_list_guides" => "Ghiduri de acordare a primului ajutor",
+    ],
+
+    "course" => [
+        "courses_nr" => " cursuri",
+        "start_date" => "Data de inceput: ",
+        
+    ],
 
 ];

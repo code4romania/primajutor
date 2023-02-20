@@ -20,6 +20,10 @@
         @apply min-h-screen;
     }
 
+    main {
+        @apply pb-96;
+    }
+
     section {
         @apply container my-10 mx-auto  flex;
     }
@@ -54,12 +58,17 @@
 @layer components {
     .card {
         background-color: theme("colors.bg-gray");
-        // border-radius: theme("borderRadius.lg");
+        border-radius: theme("borderRadius.lg");
         padding: theme("spacing.16");
         box-shadow: theme("boxShadow.lg");
         display: flex;
-        margin-bottom: theme("spacing.5");
+        margin-bottom: theme("spacing.6");
         width: 30%;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        &:hover,&:active {
+        background-color: theme("colors.yellow");
+
+        }
         .title {
             font-size: theme("fontSize.3xl");
             font-weight: theme("fontWeight.bold");
@@ -67,10 +76,18 @@
             margin-top: theme("spacing.5");
         }
     }
+
+    .card-step {
+        background: rgba(255, 255, 255, 0.5);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: theme("borderRadius.lg");
+
+    }
     .button {
-        font-size: 1rem;
-        line-height: 1.5rem;
-        color: white;
+        font-size: theme("fontSize.base");
+        line-height: theme("lineHeight.6");
+        color: theme("colors.black");
+        padding: theme("spacing.3");
         border: none;
         display: flex;
         align-items: center;

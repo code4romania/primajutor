@@ -51,11 +51,13 @@
                             <span> 0, 5 {{ __('txt.map.distance') }}</span>
                         </p>
                     </div>
-                    <button class="button w-full h-12 text-black font-bold bg-yellow my-2">{{ __('txt.buttons.directions') }}</button>
-                    <p>Defibrilator disponibil în interiorul aeroportului. Solicitați ajutor din partea personalului de la fața locului</p>
+                    <button
+                        class="button my-2 h-12 w-full bg-yellow font-bold text-black">{{ __('txt.buttons.directions') }}</button>
+                    <p>Defibrilator disponibil în interiorul aeroportului. Solicitați ajutor din partea personalului de la
+                        fața locului</p>
                     <p>{{ __('txt.map.type') }} <span class="font-bold">Defibrilator</span> </p>
                 </div>
-                </div>
+            </div>
             <div class="container h-16 bg-bg-gray" id="cta_add_def">
                 <p>CTA Adaugare defibrilator</p>
             </div>

@@ -22,12 +22,12 @@
                     <ul>
                         <li>
                             <a href="https://code4.ro/en/donate/">
-                                {{ __('txt.buttons.donate') }}
+                                {{ __('txt.footer.donate') }}
                             </a>
                         </li>
                         <li>
                             <a href="{{ route('home') }}">
-                                {{ __('txt.buttons.about_project') }} </a>
+                                {{ __('txt.footer.about_project') }} </a>
                         </li>
                         <li>
                             <a href="{{ route('home') }}">
