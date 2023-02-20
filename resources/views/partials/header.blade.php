@@ -50,7 +50,7 @@
                                 <a href="{{ route('page', $page) }}"> {{ $page->title }} </a>
                             @endif
                         @endforeach
-                        <a class="button flex h-10 w-32 items-center justify-center bg-success-color text-white"
+                        <a class="button flex h-10 w-32 bg-success-color uppercase"
                             href="https://code4.ro/en/donate/"> {{ __('txt.buttons.donate') }} </a>
                     </div>
                 </div>

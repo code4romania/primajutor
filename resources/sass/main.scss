@@ -1,11 +1,11 @@
 /** use dash (-) for css classes, not underline (_)
  *  reduce custom styles, use tailwind instead
  */
- 
- @import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
 @import "~@fortawesome/fontawesome-free/scss/brands.scss";
 @import "~@fortawesome/fontawesome-free/scss/solid.scss";
-@import "https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" ; 
+@import "https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap";
 
 @import "~swiper/css/bundle";
 
@@ -15,54 +15,68 @@
 
 // used by tailwind for defaults
 @layer base {
-
     body {
         @apply relative;
-         @apply min-h-screen;
+        @apply min-h-screen;
     }
-    
+
+    section {
+        @apply container my-10 mx-auto  flex;
+    }
+
     img {
-         @apply w-full;
+        @apply w-full;
     }
-    
+
     a {
         @apply no-underline hover:underline;
     }
-    
+
     ul {
         @apply list-none;
     }
 
     h1 {
-      @apply text-2xl;
+        @apply font-bold text-4xl leading-14 mb-8;
     }
 
     h2 {
-      @apply text-xl;
+        @apply font-bold text-3xl leading-14 mb-8;
     }
-    
+
     // 'container_padding': 15px,
     // 'container_margin': 20px 0,
     // 'element_shadow': 0px 4px 4px rgba(0, 0, 0, 0.25),
     /* ... */
-  }
+}
 
 // used by tailwind for components
 @layer components {
     .card {
-        background-color: theme('colors.white');
-        border-radius: theme('borderRadius.lg');
-        padding: theme('spacing.6');
-        box-shadow: theme('boxShadow.xl');
-      }
-     .button {
-        text-transform: uppercase;
+        background-color: theme("colors.bg-gray");
+        // border-radius: theme("borderRadius.lg");
+        padding: theme("spacing.16");
+        box-shadow: theme("boxShadow.lg");
+        display: flex;
+        margin-bottom: theme("spacing.5");
+        width: 30%;
+        .title {
+            font-size: theme("fontSize.3xl");
+            font-weight: theme("fontWeight.bold");
+            text-align: center;
+            margin-top: theme("spacing.5");
+        }
+    }
+    .button {
         font-size: 1rem;
         line-height: 1.5rem;
-        
-      }
-   
-  }
+        color: white;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
 
 .swiper {
     width: 100%;
@@ -95,7 +109,6 @@
     height: 100%;
     object-fit: cover;
 }
-
 
 .burger-btn {
     overflow: visible;
@@ -207,22 +220,21 @@
     }
 }
 
-.hero-section {
-    min-height: 190px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    // padding: $container_padding;
-    background-color: white;
-    // margin: $container_margin;
+// .hero-section {
+//     min-height: 190px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     // padding: $container_padding;
+//     background-color: white;
+//     // margin: $container_margin;
 
-    @media (max-width: 485px) {
-        align-items: flex-start;
-        padding: 20px 10px;
-        min-height: unset;
-    }
-}
-
+//     @media (max-width: 485px) {
+//         align-items: flex-start;
+//         padding: 20px 10px;
+//         min-height: unset;
+//     }
+// }
 .search-box-container {
     width: 850px;
     margin: 0 auto;
@@ -251,110 +263,6 @@
         // color: $main_gray;
         font-size: 18px;
         margin-bottom: 0;
-    }
-}
-
-.search-box {
-    width: 600px;
-    height: 40px;
-    margin: 10px auto;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-
-    @media (max-width: 945px) {
-        width: 100%;
-    }
-
-    // @media(max-width: 550px){
-    //     flex-flow: column;
-    //     height: unset;
-    // }
-
-    @media (max-width: 380px) {
-        flex-flow: column;
-        height: unset;
-    }
-
-    .search-input {
-        width: 500px;
-        height: 100%;
-        position: relative;
-
-        @media (max-width: 550px) {
-            width: 100%;
-        }
-
-        input {
-            width: 100%;
-            height: 100%;
-            border: 1px solid #cfcfcf;
-            background-color: transparent;
-            transition: 0.25s ease-in-out;
-
-            @media (max-width: 550px) {
-                height: 40px;
-            }
-
-            &::placeholder {
-                padding-left: 10px;
-            }
-
-            &:focus {
-                outline: none;
-                // box-shadow: $element_shadow;
-            }
-        }
-
-        i {
-            // color: $main_gray;
-            position: absolute;
-            top: 50%;
-            right: 5px;
-            transform: translateY(-50%);
-        }
-    }
-
-    .search-loc-button {
-        // background-color: $main_color;
-        color: white;
-        height: 100%;
-        width: 90px;
-        margin-left: 10px;
-        border: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        // @media(max-width: 550px){
-        //     height: 40px;
-        //     margin-top: 10px;
-        // }
-        @media (max-width: 380px) {
-            height: 40px;
-            margin-top: 10px;
-        }
-    }
-
-    .search-loc-city-button {
-        // background-color: $main_color;
-        color: white;
-        height: 100%;
-        width: 200px;
-        margin: auto;
-        border: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        // @media(max-width: 550px){
-        //     height: 40px;
-        //     margin-top: 10px;
-        // }
-        @media (max-width: 380px) {
-            height: 40px;
-            margin-top: 10px;
-        }
     }
 }
 
@@ -452,31 +360,6 @@
 
         @media (max-width: 485px) {
             padding: 10px;
-        }
-    }
-}
-
-.mapouter {
-    position: relative;
-    text-align: right;
-    height: 700px;
-    width: 100%;
-    margin: 10px auto;
-
-    @media (max-width: 1550px) {
-        width: 100%;
-        height: 400px;
-    }
-
-    .gmap_canvas {
-        overflow: hidden;
-        background: none !important;
-        height: 100%;
-        width: 100%;
-
-        iframe {
-            width: 100%;
-            height: 100%;
         }
     }
 }
@@ -915,4 +798,3 @@
         }
     }
 }
-

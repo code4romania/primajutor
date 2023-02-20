@@ -12,15 +12,20 @@ module.exports = {
       transparent: 'transparent',
       black: '#000',
       white: '#fff',
-     'main-color': '#e52a3f',
+     'main-color': '#e52a3f', // red
      'secondary-color': '#54617a',
      'accent-gray': '#e7ebed',
-     'bg-gray': '#F2F2F2',
+     'bg-gray': '#F2F2F2', //  in header
      'main-gray': '#828c9e',
      'text-gray': '#828282',
-     'yellow': '#FFEB4F',
-     'success-color': '#7BCF95',
-    },},
+     'yellow': '#FFEB4F', // in footer
+     'success-color': '#7BCF95', //btn in header
+    },
+    lineHeight: {
+      '12': '3rem',
+      '14': '3.5rem',
+    }
+  },
   },
   plugins: [],
 }

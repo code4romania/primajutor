@@ -5,7 +5,7 @@ return [
     "buttons" => [
         "register" => "Inscriere",
         "continue" => "Continua",
-        "localize" => "Localizare",
+        "localize" => "Localizează-mă",
         "localize_in_town" => "Localizare in orasul tau",
         "see_all_topics" => "Vezi toate cazurile",
         "donate" => "Doneaza",
@@ -13,12 +13,13 @@ return [
         "indications" => "Indicatii",
         "see_on_map" => "Vezi pe Harta",
         "find_more" => "Află mai multe",
+        "directions" => "Direcții",
     ],
 
     "placeholders" => [
         "county" => "Judet",
         "city" => "Oras",
-        "find_city_street" => "Cauta oras, strada",
+        "find_address" => "Caută adresă",
     ],
 
      "footer" => [
@@ -48,7 +49,21 @@ return [
         "top_title" => "Localizeaza un punct de prim ajutor langa tine",
         "top_subtitle" => "Detalii despre ce sa caute",
         "map_title" => "Descoperă toate punctele de prim ajutor din Romania",
-        "help_topics_title" => "Ofera prim ajutor asistat"
+        "help_topics_title" => "Ofera prim ajutor asistat",
+        "hero_title" => "Harta defibrilatoarelor și punctelor de prim-ajutor",
+        "hero_text" => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "guides" => "Ghiduri",
+        
+
     ],
+
+    "map" => [
+        "permanent" => "Permanent disponibil",
+        "distance" => "km distanță",
+        "type" => "Tip:",
+
+
+    ],
+
 
 ];
