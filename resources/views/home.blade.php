@@ -1,25 +1,25 @@
 @extends('layout')
 
 @section('content')
-    <main class="pb-96">
-        <section class="container mx-auto flex justify-between" id="hero-section">
-            <div class="flex w-3/5 flex-col pl-8 pt-4">
-                <h1 class="w-2/3"> {{ __('txt.home.hero_title') }} </h1>
-                <p class="w-2/3 text-2xl leading-9"> {{ __('txt.home.hero_text') }} </p>
+    <main>
+        <section class="container mx-auto flex flex-col md:flex-row md:justify-between" id="hero-section">
+            <div class="flex w-full flex-col md:w-3/5 md:pl-8 md:pt-4">
+                <h1 class="w-full text-2xl md:w-2/3 md:text-4xl"> {{ __('txt.home.hero_title') }} </h1>
+                <p class="w-full text-xl leading-6 md:w-2/3 md:text-2xl md:leading-9"> {{ __('txt.home.hero_text') }} </p>
             </div>
-            <div class="w-2/5">
+            <div class="flex w-full items-center md:w-2/5">
                 <img src="{{ mix('assets/images/home_hero.png') }}" alt="prim ajutor">
             </div>
         </section>
+
         <section class="flex flex-col" id="emerg-section">
-            <div class="mx-auto w-4/5">
-                <div class="flex h-20 items-center">
-                    <div class="w-3/4">
+            <div class="mx-auto w-4/5 mb-20 md:mb-0">
+                <div class="flex h-10 flex-col items-center md:h-20 md:flex-row">
+                    <div class="w-full md:w-3/4 mb-5 md:mb-0">
                         <input id="autocomplete" type="text" placeholder="{{ __('txt.placeholders.find_address') }}"
-                            class="''> <i class= w-full border border-bg-gray bg-transparent p-6 text-lg duration-300 ease-in-out focus:outline-none"fa
-                            fa-magnifying-glass translate-y-4"></i>
+                            class="w-full border border-bg-gray bg-transparent p-3 md:p-6  text-base md:text-lg duration-300 ease-in-out focus:outline-none"></i>
                     </div>
-                    <button class="button h-full w-1/4 bg-main-color text-xl" id="btn-localize" onclick="getLocation()">
+                    <button class="button h-full md:w-1/4 bg-main-color w-full md:text-xl text-base" id="btn-localize" onclick="getLocation()">
                         <i class="fa-regular fa-location-dot"></i>
                         <span class="spinner-grow spinner-grow-sm" id="btn-spin" role="status" aria-hidden="true"
                             style="display: none;"></span>
@@ -27,16 +27,16 @@
                     </button>
                 </div>
             </div>
-            <div class="my-10 h-[40rem] w-full rounded-lg border border-main-color">
-                <div class="h-full w-full overflow-hidden" id="map">
+            <div class="my-10 h-96 md:h-[40rem] w-full rounded-lg border border-main-color">
+                <div class=" h-full w-full overflow-hidden" id="map">
 
                 </div>
             </div>
-            <div class="my-10 flex h-[40rem] w-full rounded-lg border border-main-color">
-                <div class="h-full w-2/3 overflow-hidden" id="map">
+            <div class="my-10 flex flex-col md:flex-row md:h-[40rem] w-full rounded-lg border border-main-color ">
+                <div class="h-96 md:h-full w-full md:w-2/3 overflow-hidden" id="map">
 
                 </div>
-                <div class="flex h-full w-1/3 flex-col overflow-hidden p-10" id="map_result">
+                <div class="flex md:h-full w-full md:w-1/3 flex-col overflow-hidden p-10" id="map_result">
                     <span class="h-5 w-5">x</span>
                     <img class="my-5 w-20" src="{{ mix('assets/images/suitcase-icon.png') }}">
                     <p> <i class="fa-regular fa-location-dot"></i> Calea Bucurestilor, 24, Otopeni, Ilfov</p>
@@ -62,33 +62,34 @@
                 <p>CTA Adaugare defibrilator</p>
             </div>
         </section>
-        <section class="w-3/4 flex-col" id="guides_list_section">
-            <h2 class="title">{{ __('txt.home.guides') }}</h2>
-            <div class="flex flex-wrap justify-between">
-                <div class="card min-h-min flex-col items-center justify-start">
+        
+        <section class="w-full lg:w-3/4 flex-col" id="guides_list_section">
+            <h2 class="title text-2xl md:text-3xl">{{ __('txt.home.guides') }}</h2>
+            <div class="flex flex-col md:flex-row md:flex-wrap md:justify-evenly lg:justify-between">
+                <div class="card min-h-min w-full md:w-2/5 lg:w-1/4 lg:mx-1  flex-col items-center justify-start">
                     <img class="w-1/3" src="{{ mix('assets/images/guide_card_logo.png') }}" alt="guide">
                     <h4 class="title">Stopul
                         cardio-respirator </h4>
                 </div>
-                <div class="card min-h-min flex-col items-center justify-start">
+                <div class="card min-h-min w-full md:w-2/5 lg:w-1/4 lg:mx-1  flex-col items-center justify-start">
                     <img class="w-1/3" src="{{ mix('assets/images/guide_card_logo.png') }}" alt="guide">
                     <h4 class="title">Persoană
                         inconștientă</h4>
                 </div>
-                <div class="card min-h-min flex-col items-center justify-start">
+                <div class="card min-h-min w-full md:w-2/5 lg:w-1/4 lg:mx-1  flex-col items-center justify-start">
                     <img class="w-1/3" src="{{ mix('assets/images/guide_card_logo.png') }}" alt="guide">
                     <h4 class="title">Șoc
                         anafilactic</h4>
                 </div>
-                <div class="card min-h-min flex-col items-center justify-start">
+                <div class="card min-h-min w-full md:w-2/5 lg:w-1/4 lg:mx-1  flex-col items-center justify-start">
                     <img class="w-1/3" src="{{ mix('assets/images/guide_card_logo.png') }}" alt="guide">
                     <h4 class="title">Înecare</h4>
                 </div>
-                <div class="card min-h-min flex-col items-center justify-start">
+                <div class="card min-h-min w-full md:w-2/5 lg:w-1/4 lg:mx-1  flex-col items-center justify-start">
                     <img class="w-1/3" src="{{ mix('assets/images/guide_card_logo.png') }}" alt="guide">
                     <h4 class="title">Arsură</h4>
                 </div>
-                <div class="card min-h-min flex-col items-center justify-start">
+                <div class="card min-h-min w-full md:w-2/5 lg:w-1/4 lg:mx-1  flex-col items-center justify-start">
                     <img class="w-1/3" src="{{ mix('assets/images/guide_card_logo.png') }}" alt="guide">
                     <h4 class="title">Alt ghid</h4>
                 </div>
