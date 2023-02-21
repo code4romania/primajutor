@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <main class="app-main">
+    <main>
         <section class="bg-bg-gray px-5" id="breadcrumb">
             <div class="container flex py-3">
                 <a class="breadcrumb-link whitespace-nowrap" href="{{ route('home') }}" target="_blank" rel="noopener">
@@ -10,9 +10,9 @@
             </div>
         </section>
 
-        <section class="mx-auto flex w-2/3 justify-center" id="search-container"">
+        <section class="mx-auto flex flex-col md:flex-row w-2/3 justify-center" id="search-container"">
 
-            <select class="mx-1 w-1/4 border border-bg-gray p-4" id="county-select" name=""
+            <select class="md:mx-1 w-full md:w-1/4 border border-bg-gray p-4 my-1 md:my-0" my-1 md:my-0" id="county-select" name=""
                 onchange="getCities(@js(__('txt.placeholders.city')))">
                 <option disabled selected> {{ __('txt.placeholders.course_type') }} </option>
                 @foreach ($counties as $county)
@@ -20,26 +20,26 @@
                 @endforeach
             </select>
 
-            <select class="mx-1 w-1/4 border border-bg-gray p-4" id="county-select" name=""
+            <select class="md:mx-1 w-full md:w-1/4 border border-bg-gray p-4 my-1 md:my-0"  id="county-select" name=""
                 onchange="getCities(@js(__('txt.placeholders.city')))"ț>
                 <option disabled selected> {{ __('txt.placeholders.date_start') }} </option>
                 @foreach ($counties as $county)
                     <option value="{{ $county->id }}"> {{ $county->name }} </option>
                 @endforeach
             </select>
-            <select class="mx-1 w-1/4 border border-bg-gray p-4" id="county-select" name=""
+            <select class="md:mx-1 w-full md:w-1/4 border border-bg-gray p-4 my-1 md:my-0"  id="county-select" name=""
                 onchange="getCities(@js(__('txt.placeholders.city')))">>
                 <option disabled selected> {{ __('txt.placeholders.county') }} </option>
                 @foreach ($counties as $county)
                     <option value="{{ $county->id }}"> {{ $county->name }} </option>
                 @endforeach
             </select>
-            <button class="button mx-3 w-2/12 border border-yellow bg-yellow p-4"> {{ __('txt.buttons.search') }}</button>
+            <button class="button md:mx-3 w-full md:w-2/12 border border-yellow bg-yellow p-4"> {{ __('txt.buttons.search') }}</button>
         </section>
-        <section class="flex-col" id="list_courses">
-            <h2 class="mt-8 text-4xl"> 122 {{ __('txt.course.courses_nr') }}</h2>
-            <div class="flex flex-wrap justify-between">
-                <div class="card min-h-min flex-col items-start justify-start bg-white p-10">
+        <section class="w-full xl:w-3/4 flex-col"  id="list_courses">
+            <h2 class="title text-2xl md:text-3xl mt-8"> 122 {{ __('txt.course.courses_nr') }}</h2>
+                <div class="flex flex-col md:flex-row md:flex-wrap md:justify-evenly xl:justify-between">
+                    <div class="card min-h-min w-full md:w-2/5 xl:w-1/4 xl:mx-1  flex-col items-start justify-start bg-white p-10">
                     <img class="w-20" src="{{ mix('assets/images/suitcase-icon.png') }}">
                     <p class="my-2"> <i class="fa-regular fa-location-dot"></i> București</p>
                     <h4 class="my-2 text-xl font-bold">Curs de prim ajutor de bază</h4>
@@ -49,7 +49,7 @@
                     <button
                         class="button my-2 mt-3 h-12 w-full bg-yellow font-bold text-black">{{ __('txt.buttons.details') }}</button>
                 </div>
-                <div class="card min-h-min flex-col items-start justify-start bg-white p-10">
+                <div class="card min-h-min w-full md:w-2/5 xl:w-1/4 xl:mx-1  flex-col items-start justify-start bg-white p-10">
                     <img class="w-20" src="{{ mix('assets/images/suitcase-icon.png') }}">
                     <p class="my-2"> <i class="fa-regular fa-location-dot"></i> București</p>
                     <h4 class="my-2 text-xl font-bold">Curs de prim ajutor de bază</h4>
@@ -59,7 +59,7 @@
                     <button
                         class="button my-2 mt-3 h-12 w-full bg-yellow font-bold text-black">{{ __('txt.buttons.details') }}</button>
                 </div>
-                <div class="card min-h-min flex-col items-start justify-start bg-white p-10">
+                <div class="card min-h-min w-full md:w-2/5 xl:w-1/4 xl:mx-1  flex-col items-start justify-start bg-white p-10">
                     <img class="w-20" src="{{ mix('assets/images/suitcase-icon.png') }}">
                     <p class="my-2"> <i class="fa-regular fa-location-dot"></i> București</p>
                     <h4 class="my-2 text-xl font-bold">Curs de prim ajutor de bază</h4>
@@ -69,7 +69,7 @@
                     <button
                         class="button my-2 mt-3 h-12 w-full bg-yellow font-bold text-black">{{ __('txt.buttons.details') }}</button>
                 </div>
-                <div class="card min-h-min flex-col items-start justify-start bg-white p-10">
+                <div class="card min-h-min w-full md:w-2/5 xl:w-1/4 xl:mx-1  flex-col items-start justify-start bg-white p-10">
                     <img class="w-20" src="{{ mix('assets/images/suitcase-icon.png') }}">
                     <p class="my-2"> <i class="fa-regular fa-location-dot"></i> București</p>
                     <h4 class="my-2 text-xl font-bold">Curs de prim ajutor de bază</h4>
@@ -79,7 +79,7 @@
                     <button
                         class="button my-2 mt-3 h-12 w-full bg-yellow font-bold text-black">{{ __('txt.buttons.details') }}</button>
                 </div>
-                <div class="card min-h-min flex-col items-start justify-start bg-white p-10">
+                <div class="card min-h-min w-full md:w-2/5 xl:w-1/4 xl:mx-1  flex-col items-start justify-start bg-white p-10">
                     <img class="w-20" src="{{ mix('assets/images/suitcase-icon.png') }}">
                     <p class="my-2"> <i class="fa-regular fa-location-dot"></i> București</p>
                     <h4 class="my-2 text-xl font-bold">Curs de prim ajutor de bază</h4>
@@ -89,7 +89,7 @@
                     <button
                         class="button my-2 mt-3 h-12 w-full bg-yellow font-bold text-black">{{ __('txt.buttons.details') }}</button>
                 </div>
-                <div class="card min-h-min flex-col items-start justify-start bg-white p-10">
+                <div class="card min-h-min w-full md:w-2/5 xl:w-1/4 xl:mx-1  flex-col items-start justify-start bg-white p-10">
                     <img class="w-20" src="{{ mix('assets/images/suitcase-icon.png') }}">
                     <p class="my-2"> <i class="fa-regular fa-location-dot"></i> București</p>
                     <h4 class="my-2 text-xl font-bold">Curs de prim ajutor de bază</h4>
@@ -100,7 +100,7 @@
                         class="button my-2 mt-3 h-12 w-full bg-yellow font-bold text-black">{{ __('txt.buttons.details') }}</button>
                 </div>
             </div>
-            <nav class="my-5 flex w-1/3 justify-between self-center" id="pagination">
+            <nav class="my-5 flex w-full md:w-2/3 justify-between self-center" id="pagination">
                 <a class="text-xl font-bold hover:bg-yellow hover:no-underline px-3 border rounded"  class="text-xl font-bold hover:bg-yellow hover:no-underline px-3 border rounded" href="#">&laquo;</a>
                 <a class="text-xl font-bold hover:bg-yellow hover:no-underline px-3 border rounded"  href="#">1</a>
                 <a class="text-xl font-bold hover:bg-yellow hover:no-underline px-3 border rounded"  class="active" href="#">2</a>
