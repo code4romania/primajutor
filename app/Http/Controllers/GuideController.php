@@ -9,12 +9,18 @@ use Illuminate\View\View;
 
 class GuideController extends Controller
 {
-    public function __invoke(?Guide $guide = null): View
+    public function index(?Guide $guide = null): View
     {
         abort_if($guide === null, 404);
 
         return view('guides.show', [
             'guide' => $guide,
+        ]);
+    }
+    public function list()
+    {
+        return view('guides.list', [
+            'guides' => Guide::all(),
         ]);
     }
 }

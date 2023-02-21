@@ -19,6 +19,7 @@ return [
         "back_first" => "Înapoi la prima pagină",
         "search" => "Caută",
         "details" => "Detalii",
+        'add_point' => 'Adaugă defibrilator'
 
 
     ],
@@ -64,7 +65,7 @@ return [
         "hero_title" => "Harta defibrilatoarelor și punctelor de prim-ajutor",
         "hero_text" => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
         "guides" => "Ghiduri",
-        
+
 
     ],
 
@@ -85,7 +86,7 @@ return [
     "course" => [
         "courses_nr" => " cursuri",
         "start_date" => "Data de inceput: ",
-        
+
     ],
 
 ];
