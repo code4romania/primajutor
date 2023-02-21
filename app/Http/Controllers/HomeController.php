@@ -12,7 +12,7 @@ class HomeController extends Controller
     public function __invoke()
     {
         return view('home', [
-            'guides' => Guide::all(),
+            'guides' => Guide::limit(6)->get(),
             'points' => Point::all(['title', 'lat', 'lng']),
         ]);
     }
