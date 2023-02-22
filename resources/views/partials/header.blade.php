@@ -1,25 +1,26 @@
-<header class="main-header">
-    <div class="container-fluid">
-        <div class="bg-gray">
-            <div class="container flex py-3 header-global-container">
-                <img src="{{ mix('assets/images/commitglobal.svg') }}">
-                <div class="ml-3 text-sm font-medium">
-                    <span>{{ __('txt.header.commit_global') }}</span>
-                    <a href="https://www.commitglobal.org" target="_blank" rel="noopener"
-                        class="text-blue-600 hover:underline whitespace-nowrap">
+<header>
+    <div class="container max-w-full">
+        <div class="h-12 bg-bg-gray">
+            <div class="md:container md:mx-auto flex p-2">
+                <img class="h-8 w-28" src="{{ mix('assets/images/code4ro_head.png') }}">
+                <div class="font-['Roboto'] text-base md:ml-4 md:self-center">
+                    <span class="hidden md:inline">{{ __('txt.header.code_for_romania') }}</span>
+                    <a class="ml-2 whitespace-nowrap text-blue-600 " href="https://code4.ro/en/donate/" target="_blank"
+                        rel="noopener">
                         {{ __('txt.buttons.find_more') }}
                     </a>
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="header-container">
-                <div class="header-left">
-                    <a href="{{ route('home') }}" class="logo-box">
-                        <img src="{{ mix('assets/images/logo_v2.png') }}" alt="Logo">
+
+        <div class="container mx-auto h-16 md:h-24">
+            <div class="flex  h-16 md:h-24 px-2 items-center justify-between">
+                <div class="w-20 md:w-40">
+                    <a class="logo-box" href="{{ route('home') }}">
+                        <img src="{{ mix('assets/images/logo.png') }}" alt="Logo">
                     </a>
                 </div>
-                <div class="menu-trigger">
+                <div class="block cursor-pointer text-3xl md:hidden">
                     <svg class="burger-btn" id="menuTrigger" width="80" height="52" viewBox="0 0 40 26"
                         xmlns="http://www.w3.org/2000/svg">
                         <rect class="burger-btn--1" width="40" height="6" rx="3" ry="3" />
@@ -29,40 +30,38 @@
                             ry="3" />
                     </svg>
                 </div>
-                <div class="header-right" id="sideNav">
-                    <div class="header-list">
-                        <a href="{{ route('courses.index') }}"> {{ __('txt.buttons.help_courses') }} </a>
+                <div class="hidden md:flex w-full items-center justify-end" id="sideNav">
+                    <div class="flex items-center text-base lg:text-lg font-bold">
+
+                        {{-- ToDo add routes to menu  --}}
+
+                        <a class="mr-5 lg:mr-10 " href="{{ route('home') }}"> {{ __('txt.header.home') }} </a>
+                        <a class="mr-5 lg:mr-10" href="{{ route('home') }}">
+                            {{ __('txt.header.about_project') }} </a>
+                        <a class="mr-5 lg:mr-10" href="{{ route('guide.show') }}">
+                            {{ __('txt.header.guides') }}
+                        </a>
+                        <a class="mr-5 lg:mr-10" href="{{ route('courses.index') }}">
+                            {{ __('txt.header.courses') }}
+                        </a>
+                        <a class="mr-5 lg:mr-10" href="{{ route('courses.index') }}">
+                            {{ __('txt.header.contact') }} </a>
+                        <a class="mr-5 lg:mr-10" href="{{ route('courses.index') }}">
+                            {{ __('txt.header.sustain') }} </a>
                         @foreach ($pages as $page)
                             @if ($page->show_in_header)
                                 <a href="{{ route('page', $page) }}"> {{ $page->title }} </a>
                             @endif
                         @endforeach
-                        <a href="https://code4.ro/en/donate/" class="text-success"> {{ __('txt.buttons.donate') }} </a>
-                        <div class="lang-list-item">
-                            @if (app()->getLocale() == 'ro')
-                                <a href="javascript:void(0)" class="lang-selected-link">
-                                    <span> Ro </span>
-                                    <i class="fa fa-angle-down"></i>
-                                </a>
-                            @elseif(app()->getLocale() == 'en')
-                                <a href="javascript:void(0)" class="lang-selected-link">
-                                    <span> En </span>
-                                    <i class="fa fa-angle-down"></i>
-                                </a>
-                            @endif
-                            <div class="lang-dropdown">
-                                <a href="{{ route('setLocale', 'ro') }}" class="lang-dropdown-item">
-                                    <span>Ro</span>
-                                </a>
-                                <a href="{{ route('setLocale', 'en') }}" class="lang-dropdown-item">
-                                    <span>En</span>
-                                </a>
-                            </div>
-                        </div>
+                        <a class="button flex h-7 lg:h-10 w-20 lg:w-32 bg-success-color uppercase" href="https://code4.ro/en/donate/">
+                            {{ __('txt.buttons.donate') }} </a>
                     </div>
                 </div>
+
             </div>
         </div>
-
+        <div class="flex h-10 items-center justify-center bg-main-color md:h-16">
+            <h4 class="text-xl md:text-3xl font-bold text-white"> {{ __('txt.header.warning_strip') }}</h4>
+        </div>
     </div>
 </header>

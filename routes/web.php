@@ -22,7 +22,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', HomeController::class)->name('home');
-Route::get('/ghid/{guide:slug?}', GuideController::class)->name('guide.show');
+Route::get('/ghid', [GuideController::class,'list'])->name('guide.list');
+Route::get('/ghid/{guide:slug?}', [GuideController::class,'index'])->name('guide.show');
 Route::get('/cursuri', [CourseController::class, 'index'])->name('courses.index');
 Route::get('/cursuri/{county}/{city?}', [CourseController::class, 'search'])->name('courses.search');
 
