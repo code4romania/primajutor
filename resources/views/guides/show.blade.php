@@ -99,21 +99,21 @@
                 </div>
             </div>
         </section>
-        <section class="flex-col" id="other_guides">
+        <section class="w-full xl:w-4/5 flex-col" id="other_guides">
             <hr class="mt-10 w-full bg-black">
-            <h2  class="w-full text-2xl md:w-2/3 md:text-4xl mt-8">{{ __('txt.guide.other_guides') }}</h2>
-            <div class="flex flex-col md:flex-row md:flex-wrap md:justify-evenly xl:justify-between">
-               <div class="card min-h-min w-full md:w-2/5 lg:w-1/4 lg:mx-1  flex-col items-center justify-start">
+            <h2  class="w-full text-2xl md:w-2/3 md:text-3xl mt-8">{{ __('txt.guide.other_guides') }}</h2>
+            <div class="flex flex-col md:flex-row md:flex-wrap md:justify-between">
+               <div class="card min-h-min w-full md:w-[48%] lg:w-[32%] flex-col items-center justify-start">
                     <img class="w-1/3" src="{{ mix('assets/images/guide_card_logo.png') }}" alt="guide">
                     <h4 class="title">Stopul
                         cardio-respirator </h4>
                 </div>
-               <div class="card min-h-min w-full md:w-2/5 lg:w-1/4 lg:mx-1  flex-col items-center justify-start">
+               <div class="card min-h-min w-full md:w-[48%] lg:w-[32%] flex-col items-center justify-start">
                     <img class="w-1/3" src="{{ mix('assets/images/guide_card_logo.png') }}" alt="guide">
                     <h4 class="title">Persoană
                         inconștientă</h4>
                 </div>
-               <div class="card min-h-min w-full md:w-2/5 lg:w-1/4 lg:mx-1  flex-col items-center justify-start">
+               <div class="card min-h-min w-full md:w-[48%] lg:w-[32%] flex-col items-center justify-start">
                     <img class="w-1/3" src="{{ mix('assets/images/guide_card_logo.png') }}" alt="guide">
                     <h4 class="title">Șoc
                         anafilactic</h4>
@@ -121,46 +121,46 @@
             </div>
             </div>
         </section>
-        <section class="flex-col" id="list_guides">
+        <section class="w-full xl:w-4/5 flex-col" id="list_guides">
             <hr class="mt-10 w-full bg-black">
-            <h2  class="w-full text-2xl md:w-2/3 md:text-4xl mt-8">{{ __('txt.guide.title_list_guides') }}</h2>
-            <div class="flex flex-col md:flex-row md:flex-wrap md:justify-evenly xl:justify-between">
-               <div class="card min-h-min w-full md:w-2/5 lg:w-1/4 lg:mx-1  flex-col items-center justify-start">
+            <h2  class="w-full text-2xl md:w-2/3 md:text-3xl mt-8">{{ __('txt.guide.title_list_guides') }}</h2>
+            <div class="flex flex-col md:flex-row md:flex-wrap md:justify-between">
+               <div class="card min-h-min w-full md:w-[48%] lg:w-[32%]   flex-col items-center justify-start">
                     <img class="w-1/3" src="{{ mix('assets/images/guide_card_logo.png') }}" alt="guide">
                     <h4 class="title">Stopul
                         cardio-respirator </h4>
                 </div>
-               <div class="card min-h-min w-full md:w-2/5 lg:w-1/4 lg:mx-1  flex-col items-center justify-start">
+               <div class="card min-h-min w-full md:w-[48%] lg:w-[32%]   flex-col items-center justify-start">
                     <img class="w-1/3" src="{{ mix('assets/images/guide_card_logo.png') }}" alt="guide">
                     <h4 class="title">Persoană
                         inconștientă</h4>
                 </div>
-               <div class="card min-h-min w-full md:w-2/5 lg:w-1/4 lg:mx-1  flex-col items-center justify-start">
+               <div class="card min-h-min w-full md:w-[48%] lg:w-[32%]   flex-col items-center justify-start">
                     <img class="w-1/3" src="{{ mix('assets/images/guide_card_logo.png') }}" alt="guide">
                     <h4 class="title">Șoc
                         anafilactic</h4>
                 </div>
-               <div class="card min-h-min w-full md:w-2/5 lg:w-1/4 lg:mx-1  flex-col items-center justify-start">
+               <div class="card min-h-min w-full md:w-[48%] lg:w-[32%]   flex-col items-center justify-start">
                     <img class="w-1/3" src="{{ mix('assets/images/guide_card_logo.png') }}" alt="guide">
                     <h4 class="title">Stopul
                         cardio-respirator </h4>
                 </div>
-               <div class="card min-h-min w-full md:w-2/5 lg:w-1/4 lg:mx-1  flex-col items-center justify-start">
+               <div class="card min-h-min w-full md:w-[48%] lg:w-[32%]   flex-col items-center justify-start">
                     <img class="w-1/3" src="{{ mix('assets/images/guide_card_logo.png') }}" alt="guide">
                     <h4 class="title">Persoană
                         inconștientă</h4>
                 </div>
-               <div class="card min-h-min w-full md:w-2/5 lg:w-1/4 lg:mx-1  flex-col items-center justify-start">
+               <div class="card min-h-min w-full md:w-[48%] lg:w-[32%]   flex-col items-center justify-start">
                     <img class="w-1/3" src="{{ mix('assets/images/guide_card_logo.png') }}" alt="guide">
                     <h4 class="title">Șoc
                         anafilactic</h4>
                 </div>
-               <div class="card min-h-min w-full md:w-2/5 lg:w-1/4 lg:mx-1  flex-col items-center justify-start">
+               <div class="card min-h-min w-full md:w-[48%] lg:w-[32%]   flex-col items-center justify-start">
                     <img class="w-1/3" src="{{ mix('assets/images/guide_card_logo.png') }}" alt="guide">
                     <h4 class="title">Stopul
                         cardio-respirator </h4>
                 </div>
-               <div class="card min-h-min w-full md:w-2/5 lg:w-1/4 lg:mx-1  flex-col items-center justify-start">
+               <div class="card min-h-min w-full md:w-[48%] lg:w-[32%]   flex-col items-center justify-start">
                     <img class="w-1/3" src="{{ mix('assets/images/guide_card_logo.png') }}" alt="guide">
                     <h4 class="title">Persoană
                         inconștientă</h4>
@@ -200,7 +200,6 @@
                 </div>
             </div>
         </section> --}}
-        qwerty
     </main>
 @endsection
 
